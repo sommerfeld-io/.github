@@ -11,7 +11,7 @@ on:
       - assigned
   workflow_call:
     secrets:
-      github-token:
+      GH_TOKEN_REPO_AND_PROJECT:
         required: true
 
 permissions:
