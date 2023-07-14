@@ -85,8 +85,10 @@ jobs:
       - name: Run Qodana
         run: |
           (
+            mkdir -p target/qodana/report/results
             cd src/main/workflows/qodana || exit
             ./analyze.sh --save-report
+            ls -alF
           )
         shell: bash
       - name: Upload qodana result to Github Code Scanning
