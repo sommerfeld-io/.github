@@ -12,7 +12,28 @@ Additionally this project provides Reusable Workflows to use from other reposito
 * Where to file issues -> {url-project}/issues
 
 == How to use this project
-Since this repo mainly is used for Reusable Workflows, the link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[official docs from Github on Reusing Workflows] is all you need.
+Since this repo mainly is used for Reusable Workflows, see the the link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[official docs from Github on Reusing Workflows] for general information.
+
+=== Utilize Reusable Workflows from this repository
+Within this repository, you will find three distinct reusable workflows that can be readily applied to streamline your development processes. These workflows are designed to enhance efficiency and provide concrete examples of how to leverage the power of automation in your projects.
+
+The workflow, that is called this way, handles the automatic assignment of newly created issues and pull requests to specific projects and users. By leveraging this workflow, tasks and contributions are efficiently tracked and assigned, ensuring clear ownership and streamlined collaboration within your development projects.
+[source,yml]
+----
+include::ROOT:example$housekeeping-issues.yml
+----
+
+The workflow, that is called this way, is responsible for deleting unnecessary labels and creating the required labels for issues and pull requests. By executing this workflow, it ensures a streamlined and organized labeling system, enabling effective categorization and tracking of tasks and contributions within your projects.
+[source,yml]
+----
+include::ROOT:example$housekeeping-labels.yml
+----
+
+The workflow, that is called this way, guarantees a consistent configuration of the repository itself by automating tasks such as enabling and disabling certain features (e.g., the wiki feature) or applying specific settings. This ensures that the repository maintains a standardized and controlled environment, aligning with the desired configuration.
+[source,yml]
+----
+include::ROOT:example$housekeeping-repo.yml
+----
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issus labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
