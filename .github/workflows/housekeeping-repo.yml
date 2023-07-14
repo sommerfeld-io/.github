@@ -18,12 +18,12 @@ permissions:
 
 jobs:
   info:
-     name: info
-     runs-on: ubuntu-latest
-     steps:
+    name: info
+    runs-on: ubuntu-latest
+    steps:
       - name: Print repo name which runs the workflow
         run: echo "[INFO] repo = ${{ github.event.repository.name }}"
-        shell: bash 
+        shell: bash
 
   bootstap-files:
     name: bootstap-files
@@ -75,4 +75,3 @@ jobs:
           name: ${{ github.workflow }}
           url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
           status: failure
-  

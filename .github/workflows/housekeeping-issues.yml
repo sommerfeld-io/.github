@@ -22,12 +22,12 @@ permissions:
 
 jobs:
   info:
-     name: info
-     runs-on: ubuntu-latest
-     steps:
+    name: info
+    runs-on: ubuntu-latest
+    steps:
       - name: Print repo name which runs the workflow
         run: echo "[INFO] repo = ${{ github.event.repository.name }}"
-        shell: bash 
+        shell: bash
 
   add-issue-to-project:
     name: Add to project
