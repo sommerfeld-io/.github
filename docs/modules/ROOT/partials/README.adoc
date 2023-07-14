@@ -3,13 +3,13 @@ Special repository which main purpose is to provide Reusable Workflows to refere
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
 image:{github-actions-url}/{job-ci}/{badge}[Github Badge, link={github-actions-url}/{job-ci}]
 
-* Github Repository -> {url-project}
-* Where to file issues -> {url-project}/issues
-
 == About this project
 The `.github` repository serves as a central repository within GitHub that issue templates, GitHub Actions workflows, etc. for all our projects that don't have an actual .github directory with issue templates and other community health files on their own.
 
 Additionally this project provides Reusable Workflows to use from other repositories. This avoids code duplications and removes the need for complex syncing mechanisms to keep every repo up to date.
+
+* Github Repository -> {url-project}
+* Where to file issues -> {url-project}/issues
 
 == How to use this project
 Since this repo mainly is used for Reusable Workflows, the link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[official docs from Github on Reusing Workflows] is all you need.
