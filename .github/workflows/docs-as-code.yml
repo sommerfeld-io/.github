@@ -9,7 +9,8 @@ on:
   workflow_call:
 
 permissions:
-  contents: read
+  contents: write
+  security-events: write
 
 concurrency:
   group: ${{ github.ref }}
@@ -26,8 +27,6 @@ jobs:
 
   generate-docs:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -56,8 +55,6 @@ jobs:
 
   validate-links:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     needs: generate-docs
     steps:
       - name: Checkout code
@@ -75,8 +72,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     needs: generate-docs
-    permissions:
-      security-events: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
