@@ -1,20 +1,6 @@
 ---
 name: "Housekeeping: Labels"
 
-# +----------------------------------------------------+
-# |                                                    |
-# |    DO NOT EDIT DIRECTLY !!!!!                      |
-# |                                                    |
-# |    File is created from a bootstrap script and     |
-# |    most likely auto-generated from a github        |
-# |    actions workflow. So any changes will be        |
-# |    overwritten regularly.                          |
-# |                                                    |
-# |    See sommerfeld-io/dev-environment-config        |
-# |    repo for master.                                |
-# |                                                    |
-# +----------------------------------------------------+
-
 on:
   schedule:
     - cron: '0 1 * * *' # https://crontab.guru
@@ -23,6 +9,7 @@ on:
       - main
     paths:
       - .github/workflows/housekeeping-labels.yml
+  workflow_call:
 
 permissions:
   contents: read
