@@ -85,7 +85,6 @@ jobs:
       - name: Run Qodana
         run: |
           (
-            mkdir -p target/qodana/report/results
             cd src/main/workflows/qodana || exit
             ./analyze.sh --save-report
             ls -alF
@@ -94,7 +93,7 @@ jobs:
       - name: Upload qodana result to Github Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: target/qodana/report/results/qodana.sarif.json
+          sarif_file: src/main/workflows/qodana/qodana.sarif.json
 
   on-failure:
     runs-on: ubuntu-latest
