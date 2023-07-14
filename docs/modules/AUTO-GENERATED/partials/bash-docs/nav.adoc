@@ -1,0 +1,1 @@
+* `xref:AUTO-GENERATED:bash-docs/src/main/workflows/qodana/analyze-sh.adoc[src/main/workflows/qodana/analyze.sh]`
