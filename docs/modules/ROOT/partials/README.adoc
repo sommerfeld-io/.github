@@ -20,19 +20,19 @@ Within this repository, you will find three distinct reusable workflows that can
 The workflow, that is called this way, handles the automatic assignment of newly created issues and pull requests to specific projects and users. By leveraging this workflow, tasks and contributions are efficiently tracked and assigned, ensuring clear ownership and streamlined collaboration within your development projects.
 [source,yml]
 ----
-include::ROOT:example$housekeeping-issues.yml
+include::ROOT:example$housekeeping-issues.yml[]
 ----
 
 The workflow, that is called this way, is responsible for deleting unnecessary labels and creating the required labels for issues and pull requests. By executing this workflow, it ensures a streamlined and organized labeling system, enabling effective categorization and tracking of tasks and contributions within your projects.
 [source,yml]
 ----
-include::ROOT:example$housekeeping-labels.yml
+include::ROOT:example$housekeeping-labels.yml[]
 ----
 
 The workflow, that is called this way, guarantees a consistent configuration of the repository itself by automating tasks such as enabling and disabling certain features (e.g., the wiki feature) or applying specific settings. This ensures that the repository maintains a standardized and controlled environment, aligning with the desired configuration.
 [source,yml]
 ----
-include::ROOT:example$housekeeping-repo.yml
+include::ROOT:example$housekeeping-repo.yml[]
 ----
 
 == Risks and Technical Debts
