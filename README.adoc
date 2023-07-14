@@ -61,6 +61,14 @@ The workflow, that is called this way, guarantees a consistent configuration of 
 include::ROOT:example$housekeeping-repo.yml[]
 ----
 
+==== Generate Docs (as Code)
+This workflow automates the generation of the project's README.adoc file by extracting information from the Antora documentation of the repository. Additionally, it generates Asciidoc documentation into a dedicated Antora module for all bash scripts within the repository. All bash scripts must cmply to link:https://github.com/reconquest/shdoc[shdoc] documentation style. This automated process enhances consistency, accuracy, and readability of the project documentation, providing valuable insights and comprehensive information for users and contributors.
+
+[source,yml]
+----
+include::ROOT:example$docs-as-code.yml[]
+----
+
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issus labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
 
