@@ -2,12 +2,16 @@
 # @file analyze.sh
 # @brief Analyze this projects source code by running Qodana.
 #
-# @description This script analyzes this projects source code and asciidoc by running
-# link:https://www.jetbrains.com/de-de/qodana[Qodana] The script is invkoed by the
-# ``docs-as-code.yml`` workflow.
+# @description This script performs code and AsciiDoc analysis using Qodana. This script
+# examines the source code and AsciiDoc files, providing valuable insights and highlighting
+# potential issues. To support this workflow, a custom Docker image, based on the official
+# link:https://www.jetbrains.com/de-de/qodana[Qodana] Docker image, is utilized. This custom
+# image includes additional plugins required for accurate analysis of AsciiDoc files,
+# ensuring thorough code and documentation quality checks.
 #
-# The base image for the custom Docker image which is built during the workflow execution is
-# link:https://hub.docker.com/r/jetbrains/qodana[``jetbrains/qodana``].
+# The script is invoked by the ``docs-as-code.yml`` workflow. By integrating this script into
+# the workflow, we ensure that code and documentation quality checks are seamlessly
+# incorporated into our continuous integration and documentation processes.
 #
 # === Script Arguments
 #
