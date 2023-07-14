@@ -17,6 +17,14 @@ permissions:
   contents: write
 
 jobs:
+  info:
+     name: info
+     runs-on: ubuntu-latest
+     steps:
+      - name: Print repo name which runs the workflow
+        run: echo "[INFO] repo = ${{ github.event.repository.name }}"
+        shell: bash 
+
   bootstap-files:
     name: bootstap-files
     runs-on: ubuntu-latest
@@ -57,7 +65,7 @@ jobs:
 
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['bootstap-files', 'configure-repo']
+    needs: ['info', 'bootstap-files', 'configure-repo']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat
