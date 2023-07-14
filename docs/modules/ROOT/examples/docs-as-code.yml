@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.ref }}
+  group: "docs-as-code-${{ github.event.repository.name }}-${{ github.ref }}"
   cancel-in-progress: true
 
 jobs:
