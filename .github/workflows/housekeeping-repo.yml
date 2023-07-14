@@ -27,6 +27,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
 
 jobs:
@@ -36,16 +37,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Setup labels
-        run: |
-          curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-config/bootstrap.sh | bash -
-        shell: bash
-      - name: Commit and push
-        uses: EndBug/add-and-commit@v9
         with:
-          author_name: sebastian
-          author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] bootstrap files automatically"
+          token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Bootstap Files
+      #   run: |
+      #     curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-config/bootstrap.sh | bash -
+      #   shell: bash
+      # - name: Commit and push
+      #   uses: EndBug/add-and-commit@v9
+      #   with:
+      #     author_name: sebastian
+      #     author_email: sebastian@sommerfeld.io
+      #     message: "[Actions Bot] bootstrap files automatically"
 
   configure-repo:
     name: configure-repo
@@ -53,17 +56,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      # - name: Configure repository
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     gh repo edit \
-      #       --enable-discussions \
-      #       --enable-issues \
-      #       --enable-projects \
-      #       --enable-wiki=false \
-      #       --visibility=public
-      #   shell: bash
+      - name: Configure repository
+        # run: |
+        #   gh repo edit \sommerfeld-io/${{ github.event.repository.name }}
+        #     --enable-discussions \
+        #     --enable-issues \
+        #     --enable-projects \
+        #     --enable-wiki=false \
+        #     --visibility=public
+        run: |
+          echo "[INFO] Get repo sommerfeld-io/${{ github.event.repository.name }}"
+          gh api "repos/sommerfeld-io/${{ github.event.repository.name }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
 
   on-failure:
     runs-on: ubuntu-latest
@@ -77,3 +83,4 @@ jobs:
           name: ${{ github.workflow }}
           url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
           status: failure
+  
