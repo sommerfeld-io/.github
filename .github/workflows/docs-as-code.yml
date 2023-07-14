@@ -81,7 +81,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          repository: sommerfeld-io
+          repository: sommerfeld-io/.github
       - name: Run Qodana
         run: |
           (
