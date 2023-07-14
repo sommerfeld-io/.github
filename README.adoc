@@ -74,16 +74,14 @@ This Reusable Workflow (`sommerfeld-io/.github/.github/workflows/module-ci-lint.
 
 [source,yml]
 ----
-[...]
-
+# [...]
 jobs:
-
-  [...]
+  # [...]
 
   module-ci-lint:
     uses: sommerfeld-io/.github/.github/workflows/module-ci-lint.yml@main
 
-  [...]
+  # [...]
 ----
 
 === More Modules
