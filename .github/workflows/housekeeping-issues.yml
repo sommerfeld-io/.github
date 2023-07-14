@@ -10,6 +10,9 @@ on:
       - opened
       - assigned
   workflow_call:
+    secrets:
+      github-token:
+        required: true
 
 permissions:
   contents: read
