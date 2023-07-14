@@ -51,6 +51,26 @@ This workflow automates the generation of the project's README.adoc file by extr
 include::ROOT:example$docs-as-code.yml[]
 ----
 
+==== Module: CI Linter
+This Reusable Workflow (`sommerfeld-io/.github/.github/workflows/module-ci-lint.yml`) serves as a module that offers essential linter functionalities which are common to all repositories. This module is designed to be called from other workflows and never runs independently within the `.github` repository. By including this reusable workflow in other workflows, developers can easily incorporate common linting capabilities into their specific workflows, promoting code quality and adherence to predefined standards. Keep in mind that linter definition files like `.yamllint.yml` are not shipped with this Reusable Workflow and must be present in the respective repository.
+
+[source,yml]
+----
+[...]
+
+jobs:
+
+  [...]
+
+  module-ci-lint:
+    uses: sommerfeld-io/.github/.github/workflows/module-ci-lint.yml@main
+
+  [...]
+----
+
+=== More Modules
+In addition to the aforementioned Reusable Workflow module, there are other modules available within the repository. These modules can be similarly utilized by calling them from other workflows. For an overview of available modules, please visit https://github.com/sommerfeld-io/.github/tree/main/.github/workflows.
+
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issus labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
 
