@@ -1,7 +1,7 @@
 ---
 name: .github
 title: .github
-version: main
+version: manage--linter-rulesets
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc
