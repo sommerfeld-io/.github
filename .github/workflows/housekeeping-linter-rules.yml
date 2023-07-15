@@ -1,0 +1,46 @@
+---
+name: "Housekeeping: Linter Rules"
+
+on:
+  schedule:
+    - cron: '0 5 * * *' # https://crontab.guru
+  push: #! temp ... remove when development is done !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    branches: # ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      - manage-linter-rulesets # ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    paths: # ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      - .github/workflows/housekeeping-linter-rules.yml # ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  read-repos:
+    name: read-repos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Print Branchname
+        run: echo ${{github.ref}}
+      - name: Read repos using Github CLI
+        run: |
+          JQ_QUERY='.[] | .name
+          echo "[INFO] Read repositories from sommerfeld-io"
+          gh api "orgs/sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+
+  on-failure:
+    runs-on: ubuntu-latest
+    needs: ['read-repos']
+    if: failure()
+    steps:
+      - name: Send Pipeline Status to Google Chat
+        if: always()
+        uses: Co-qn/google-chat-notification@releases/v1
+        with:
+          name: ${{ github.workflow }}
+          url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          status: failure
