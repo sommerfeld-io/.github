@@ -1,5 +1,5 @@
 ---
-name: "Housekeeping (all Repos): Linter Rules"
+name: "Organization Housekeeping: Linter Rules"
 
 on:
   schedule:
