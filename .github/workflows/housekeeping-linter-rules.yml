@@ -27,7 +27,8 @@ jobs:
       - name: Read repos using Github CLI
         id: generate-matrix
         run: |
-          REPOS=$(gh repo list --json="name")
+          GH_ORG="sommerfeld-io"
+          REPOS=$(gh repo list "$GH_ORG --json="name")
           echo "$REPOS"
           echo "REPOS=$REPOS" >> $GITHUB_OUTPUT
         env:
