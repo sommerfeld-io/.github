@@ -33,11 +33,9 @@ ls:
 ignore:
   # linter definitions
   - .adoc-links.json
-  - src/main/github-config/assets/linters/.adoc-links.json
   - .ls-lint.yml
-  - src/main/github-config/assets/linters/.ls-lint.yml
   - .yamllint.yml
-  - src/main/github-config/assets/linters/.yamllint.yml
+  - resources/linters
 
   # globals
   - .git

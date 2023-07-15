@@ -20,6 +20,8 @@
     "src/main/**",
     "src/test/**",
 
+    "resources", 
+
     "node_modules/**",
     "target/**"
   ]
