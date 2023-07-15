@@ -56,12 +56,40 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: "sommerfeld-io/${{ matrix.repo.name }}"
+          ref: main
           path: target-repo
       - name: Info
         run: |
+          echo "[INFO] source repo contents"
           ls source-repo
+          echo "[INFO] target repo contents"
           ls target-repo
         shell: bash
+      - name: Copy linter rules etc.
+        run: |
+          FILES=(
+            '.adoc-links.json'
+            '.folderslintrc'
+            '.ls-lint.yml'
+            '.shellcheckrc'
+            '.yamllint.yml'
+          )
+          for file in "${FILES[@]}"
+          do
+            echo "[LOG_INFO] Copy $file"
+            cp "source-repo/resources/linters/$file" "target-repo/$file"
+          done
+
+          echo "[LOG_INFO] Copy .gitignore"
+          cp "source-repo/resources/.gitignore" "target-repo/.gitignore"
+        shell: bash
+      - name: Commit and push (target repo = ${{ matrix.repo.name }})
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: sebastian
+          author_email: sebastian@sommerfeld.io
+          message: "[Actions Bot] updated linter rules"
+          cwd: target-repo
 
   on-failure:
     runs-on: ubuntu-latest
