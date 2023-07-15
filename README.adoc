@@ -34,6 +34,11 @@ Additionally this project provides Issue Templates and Pull Request Templates wh
 == How to use this project
 Since this repo mainly is used for Reusable Workflows, see the the link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[official docs from Github on Reusing Workflows] for general information.
 
+=== Houskeeping Workflows  that affect all Repositories
+This repository serves as a centralized location for automated housekeeping workflows that apply to all repositories within the link:https://github.com/sommerfeld-io[sommerfeld.io organisation].
+
+One such workflow is the "Organization Housekeeping: Linter Rules" workflow. This workflow ensures uniformity by enforcing the use of the same set of linter rules (such as yamllint, shellcheck, etc.) and the same .gitignore file across all repositories. By centralizing these rules and configurations, we eliminate the need for each individual repository to manage and update them separately. This approach prevents inconsistencies and reduces the likelihood of outdated or inconsistent rule sets across our repositories.
+
 === Utilize Reusable Workflows from this repository
 Within this repository, you will find three distinct reusable workflows that can be readily applied to streamline your development processes. These workflows are designed to enhance efficiency and provide concrete examples of how to leverage the power of automation in your projects.
 
@@ -70,7 +75,7 @@ include::ROOT:example$docs-as-code.yml[]
 ----
 
 ==== Module: CI Linter
-This Reusable Workflow (`sommerfeld-io/.github/.github/workflows/module-ci-lint.yml`) serves as a module that offers essential linter functionalities which are common to all repositories. This module is designed to be called from other workflows and never runs independently within the `.github` repository. By including this reusable workflow in other workflows, developers can easily incorporate common linting capabilities into their specific workflows, promoting code quality and adherence to predefined standards. Keep in mind that linter definition files like `.yamllint.yml` are not shipped with this Reusable Workflow and must be present in the respective repository.
+This Reusable Workflow (`sommerfeld-io/.github/.github/workflows/module-ci-lint.yml`) serves as a module that offers essential linter functionalities which are common to all repositories. This module is designed to be called from other workflows and never runs independently within the `.github` repository. By including this reusable workflow in other workflows, developers can easily incorporate common linting capabilities into their specific workflows, promoting code quality and adherence to predefined standards. 
 
 [source,yml]
 ----
@@ -83,6 +88,8 @@ jobs:
 
   # [...]
 ----
+
+There is no need to manage the linter rule sets on your own for each repository. The "Organization Housekeeping: Linter Rules" workflow guarantees that all required linter rule sets are present and up to date in every repository within the link:https://github.com/sommerfeld-io[sommerfeld.io organisation] (see above). This streamlined approach eliminates the burden of manually managing and updating rule sets in individual repositories, saving time and promoting code consistency.
 
 === More Modules
 In addition to the aforementioned Reusable Workflow module, there are other modules available within the repository. These modules can be similarly utilized by calling them from other workflows. For an overview of available modules, please visit https://github.com/sommerfeld-io/.github/tree/main/.github/workflows.
