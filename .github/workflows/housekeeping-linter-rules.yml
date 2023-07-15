@@ -24,7 +24,7 @@ jobs:
         run: echo ${{github.ref}}
       - name: Read repos using Github CLI
         run: |
-          JQ_QUERY='.[] | .name
+          JQ_QUERY='.[] | .name'
           echo "[INFO] Read repositories from sommerfeld-io"
           gh api "orgs/sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY"
         env:
