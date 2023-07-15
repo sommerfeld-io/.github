@@ -2,6 +2,8 @@
   "rules": [
     ".github/workflows",
 
+    ".vscode",
+
     "config/**",
 
     "docs/modules/*/assets/attachments/**",

@@ -4,12 +4,11 @@ name: "Housekeeping (all Repos): Linter Rules"
 on:
   schedule:
     - cron: '0 5 * * *' # https://crontab.guru
-  push: #! temp ... remove when development is done !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    branches: # ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      - manage-linter-rulesets # ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    paths: # ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      - .github/workflows/housekeeping-linter-rules.yml # ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/housekeeping-linter-rules.yml
 
 permissions:
   contents: write
