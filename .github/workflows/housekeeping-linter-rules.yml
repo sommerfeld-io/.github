@@ -17,16 +17,19 @@ jobs:
   read-repos:
     name: read-repos
     runs-on: ubuntu-latest
+    outputs:
+      REPOS: ${{ steps.generate-matrix.outputs.REPOS }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Print Branchname
         run: echo ${{github.ref}}
       - name: Read repos using Github CLI
+        id: generate-matrix
         run: |
-          JQ_QUERY='.[] | .name'
-          echo "[INFO] Read repositories from sommerfeld-io"
-          gh api "orgs/sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY"
+          REPOS=$(gh repo list --json="name")
+          echo "$REPOS"
+          echo "REPOS=$REPOS" >> $GITHUB_OUTPUT
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
@@ -37,7 +40,7 @@ jobs:
     needs: read-repos
     strategy:
       matrix:
-        repo: [abc, def, ghi]
+        repo: ${{ fromJSON(needs.read-repos.outputs.REPOS) }}
     steps:
       - name: Write files to repo
         run: echo "${{ matrix.repo }}"
