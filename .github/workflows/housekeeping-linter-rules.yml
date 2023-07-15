@@ -39,6 +39,8 @@ jobs:
   update-repos:
     name: update-repos
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     needs: read-repos
     strategy:
       matrix:
