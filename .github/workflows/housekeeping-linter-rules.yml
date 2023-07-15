@@ -28,7 +28,7 @@ jobs:
         id: generate-matrix
         run: |
           GH_ORG="sommerfeld-io"
-          REPOS=$(gh repo list "$GH_ORG --json="name")
+          REPOS=$(gh repo list "$GH_ORG" --json="name")
           echo "$REPOS"
           echo "REPOS=$REPOS" >> $GITHUB_OUTPUT
         env:
