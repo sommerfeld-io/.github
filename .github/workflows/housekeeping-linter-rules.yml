@@ -45,17 +45,17 @@ jobs:
         repo: ${{ fromJSON(needs.read-repos.outputs.REPOS) }}
     steps:
       - name: Info
-        run: echo "${{ matrix.repo }}"
+        run: echo "matrix.repo.name = ${{ matrix.repo.name }}"
         shell: bash
       - name: Checkout code (source repo = .github)
         uses: actions/checkout@v3
         with:
           repository: "sommerfeld-io/.github"
           path: source-repo
-      - name: Checkout code (target repo = ${{ matrix.repo }})
+      - name: Checkout code (target repo = ${{ matrix.repo.name }})
         uses: actions/checkout@v3
         with:
-          repository: "sommerfeld-io/${{ matrix.repo }}"
+          repository: "sommerfeld-io/${{ matrix.repo.name }}"
           path: target-repo
       - name: Info
         run: |
