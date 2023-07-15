@@ -20,7 +20,7 @@
     "src/main/**",
     "src/test/**",
 
-    "resources", 
+    "resources/**", 
 
     "node_modules/**",
     "target/**"
