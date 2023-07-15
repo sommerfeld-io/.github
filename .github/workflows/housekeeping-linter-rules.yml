@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - .github/workflows/housekeeping-linter-rules.yml
+      - resources/linters
 
 permissions:
   contents: write
@@ -43,8 +44,23 @@ jobs:
       matrix:
         repo: ${{ fromJSON(needs.read-repos.outputs.REPOS) }}
     steps:
-      - name: Write files to repo
+      - name: Info
         run: echo "${{ matrix.repo }}"
+        shell: bash
+      - name: Checkout code (source repo = .github)
+        uses: actions/checkout@v3
+        with:
+          repository: "sommerfeld-io/.github"
+          path: source-repo
+      - name: Checkout code (target repo = ${{ matrix.repo }})
+        uses: actions/checkout@v3
+        with:
+          repository: "sommerfeld-io/${{ matrix.repo }}"
+          path: target-repo
+      - name: Info
+        run: |
+          ls source-repo
+          ls target-repo
         shell: bash
 
   on-failure:
