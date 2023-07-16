@@ -10,7 +10,6 @@ yamllint-*
 # terraform
 .terraform
 .terraform.lock*
-src/main/github-config/terraform.tfstate*
 tfplan
 .bitwarden*
 
@@ -19,3 +18,7 @@ tfplan
 *.pass
 *.user
 *.secret
+
+# Antora UI bundle
+src/main/ui/build
+src/main/ui/public
