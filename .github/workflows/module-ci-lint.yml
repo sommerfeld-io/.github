@@ -59,7 +59,7 @@ jobs:
           done
 
           case $SUCCESS in
-            (true)    echo "[INFO] SUCCESS" && exit 1;;
+            (true)    echo "[INFO] SUCCESS" && exit 0;;
             (false)   echo "[ERROR] Detected forbidden files / folders" && exit 1;;
           esac
         shell: bash
