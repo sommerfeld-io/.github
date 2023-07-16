@@ -39,7 +39,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Run folderslint in container
+      - name: Validate that no forbidden file / folder is present in repo
         run: |
           SUCCESS=true
 
