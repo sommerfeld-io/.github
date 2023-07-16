@@ -3,7 +3,7 @@ name: "Organization Housekeeping: Linter Rules"
 
 on:
   schedule:
-    - cron: '0 5 * * *' # https://crontab.guru
+    - cron: '0 3 * * *' # https://crontab.guru
   push:
     branches:
       - main
