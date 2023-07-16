@@ -40,7 +40,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run folderslint in container
-        run: echo "${{ github.event.repository.name }}"
+        run: |
+          SUCCESS=true
+
+          BLACKLIST=(
+            # Folders
+            '.github/ISSUE_TEMPLATE'
+            # Files
+            '.github/PULL_REQUEST_TEMPLATE.md'
+          )
+          for entry in "${BLACKLIST[@]}"
+          do
+            echo "[INFO] Check forbidden file / folder '$entry'"
+            if [[ -e "$entry" ]]; then
+              echo "[ERROR] File / folder '$entry' exists, but should be absent"
+              SUCCESS=false
+            fi
+          done
+
+          case $SUCCESS in
+            (true)    echo "[INFO] SUCCESS" && exit 1;;
+            (false)   echo "[ERROR] Detected forbidden files / folders" && exit 1;;
+          esac
         shell: bash
 
   lint-filenames:
