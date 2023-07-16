@@ -6,7 +6,7 @@ This Architecture Decision Record is a direct consequence of the issue link:http
 [cols="1,1,1",options="header"]
 |===
 |Proposed on |Accepted on |Declined on
-|2023-07-16  |-  |-
+|2023-07-16  |2023-07-16  |-
 |===
 
 == Context
