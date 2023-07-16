@@ -10,7 +10,7 @@ This Architecture Decision Record is a direct consequence of the issue link:http
 |===
 
 == Context
-I aimed to create a centralized approach for managing common files, such as linter rulesets, across all repositories. To achieve this, I implemented a matrix workflow in the link:https://github.com/sommerfeld-io/.github/[.github] repository. This workflow utilized the link:https://cli.github.com/[GitHub CLI] to iterate through each repository and created a  matrix-element for each repository. Each matrix-element should update files for a single repository by cloning the repository, copying files into its filesystem and pushing the changes to the remote repository.
+I aimed to create a centralized approach for managing common files, such as linter rulesets, across all repositories. To achieve this, I implemented a matrix workflow in the link:https://github.com/sommerfeld-io/.github[.github] repository. This workflow utilized the link:https://cli.github.com/[GitHub CLI] to iterate through each repository and created a  matrix-element for each repository. Each matrix-element should update files for a single repository by cloning the repository, copying files into its filesystem and pushing the changes to the remote repository.
 
 The proboem is, that the `GITHUB_TOKEN` used in the workflow only grants permissions for the repository where the workflow was hosted. Writing to other repositories resulted in the error message `Error: Pushing to https://github.com/sommerfeld-io/infrastructure-config - remote: Permission to sommerfeld-io/infrastructure-config.git denied to github-actions[bot]`. Consequently, I was unable to write files to other repositories.
 
@@ -19,7 +19,7 @@ The proboem is, that the `GITHUB_TOKEN` used in the workflow only grants permiss
 ====
 [source,yml]
 ----
-include::ROOT:example$adr-2023-07-16-global-update-workflows-vs-reusable-workflows/housekeeping-linter-rules.yml[]
+include::ADR:example$adr-2023-07-16-global-update-workflows-vs-reusable-workflows/housekeeping-linter-rules.yml[]
 ----
 ====
 
@@ -29,7 +29,7 @@ One option involved generating a personal access token (PAT) with the necessary 
 NOTE: Replace me with some thought about the following questions: Why do we think about this in the first place? What was the trigger? Why is this worth an ADR? WHy is this not just a smaller / local descision for a single repo? Why should this affect all repositories / future considerations?
 
 === Solution #2
-Another solution to address the limitation is to have each repository maintain its own housekeeping workflow responsible for updating linter rules. This workflow can make use of reusable workflows available in the .github repository to avoid duplication and manage the workflow logic in a central location.
+Another solution to address the limitation is to have each repository maintain its own housekeeping workflow responsible for updating linter rules. This workflow can make use of reusable workflows available in the link:https://github.com/sommerfeld-io/.github[.github] repository to avoid duplication and manage the workflow logic in a central location.
 
 With this approach, the workflow logic remains the same. It involves cloning the source repository (containing the linter rules) and the target repository (hosting the workflow), copying the necessary files, and pushing the changes upstream. The advantage is that the GITHUB_TOKEN privileges are sufficient since each workflow only writes to its own repository.
 
