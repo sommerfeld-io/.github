@@ -1,0 +1,2 @@
+* Architecture + Design Decisions
+** xref:adr-2023-07-16-global-update-workflows-vs-reusable-workflows.adoc[]
