@@ -10,7 +10,6 @@ on:
     paths:
       - .github/workflows/housekeeping-repo.yml
       - resources/linters
-  workflow_dispatch:
   workflow_call:
 
 permissions:
