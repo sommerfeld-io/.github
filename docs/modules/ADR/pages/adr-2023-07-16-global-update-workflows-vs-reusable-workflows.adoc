@@ -1,4 +1,4 @@
-= ADR: Give me a name !!!
+= ADR: Update repositores from `.github` repo vs. Reuseable Workflow in every repo
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 This Architecture Decision Record is a direct consequence of the issue link:https://github.com/sommerfeld-io/.github/issues/3[Refactor central management of  linter rulesets (the resprctive files like `.yamllint.yml` - #3].
@@ -6,7 +6,7 @@ This Architecture Decision Record is a direct consequence of the issue link:http
 [cols="1,1,1",options="header"]
 |===
 |Proposed on |Accepted on |Declined on
-|2023-??-??  |-  |-
+|2023-07-16  |-  |-
 |===
 
 == Context
