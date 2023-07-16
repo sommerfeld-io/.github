@@ -35,6 +35,8 @@ With this approach, the workflow logic remains the same. It involves cloning the
 
 By implementing this solution, repositories can autonomously manage their linter rules without relying on a central workflow, ensuring more granular control and reducing dependencies on external permissions.
 
+An additional advantage of employing a housekeeping workflow in each repository is the ability to extend the workflow's functionality without compromising or removing features from the reusable workflow. Each repository can customize and enhance the housekeeping workflow to suit its specific requirements and unique characteristics. This flexibility allows repositories to adapt the workflow to their individual needs while still benefiting from the core features provided by the reusable workflow.
+
 == Decision
 Solution 1 was not chosen due to the desire to avoid managing additional secrets beyond what is necessary.
 
@@ -44,3 +46,5 @@ This approach ensures that changes are only written to a repository by human dev
 
 == Consequences
 It is necessary to manually ensure that the housekeeping workflow is present in each repository. While central workflows can still be utilized, their functionality is limited to reading information from other repositories or all repositories collectively. These central workflows do not write any files to repositories other than their own. Writing operations should be handled independently by each repository, ensuring that repositories maintain control over their own files and reducing potential conflicts or unintended modifications.
+
+There is room for automation as well. Due to the availability of matrix workflows for reading information from repositories, we can establish an audit workflow that validates each repository's integrity and ensures the presence of mandatory files, such as essential housekeeping files. This audit workflow systematically checks and verifies that repositories comply with the required standards, promoting consistency and adherence to organizational guidelines. By leveraging matrix workflows for auditing purposes, we can automate this process and maintain the desired repository structure and content across the organization. This would eliminate the need to manually check each repository. This potential is addressed with issue link:https://github.com/sommerfeld-io/.github/issues/6[Automated Repository Validation: Ensuring Compliance and Structure - #6].
