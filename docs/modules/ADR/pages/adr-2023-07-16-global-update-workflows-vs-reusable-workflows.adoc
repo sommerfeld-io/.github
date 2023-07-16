@@ -14,7 +14,7 @@ I aimed to create a centralized approach for managing common files, such as lint
 
 The proboem is, that the `GITHUB_TOKEN` used in the workflow only grants permissions for the repository where the workflow was hosted. Writing to other repositories resulted in the error message `Error: Pushing to https://github.com/sommerfeld-io/infrastructure-config - remote: Permission to sommerfeld-io/infrastructure-config.git denied to github-actions[bot]`. Consequently, I was unable to write files to other repositories.
 
-.Click to show workflow code that was causing the issues
+.Show workflow code that was causing the issues
 [%collapsible]
 ====
 [source,yml]
