@@ -26,8 +26,6 @@ include::ADR:example$adr-2023-07-16-global-update-workflows-vs-reusable-workflow
 === Solution #1
 One option involved generating a personal access token (PAT) with the necessary permissions to access and write files in the target repositories. By using this PAT in the workflow, I could overcome the restrictions of the `GITHUB_TOKEN` and successfully write files to the desired repositories.
 
-NOTE: Replace me with some thought about the following questions: Why do we think about this in the first place? What was the trigger? Why is this worth an ADR? WHy is this not just a smaller / local descision for a single repo? Why should this affect all repositories / future considerations?
-
 === Solution #2
 Another solution to address the limitation is to have each repository maintain its own housekeeping workflow responsible for updating linter rules. This workflow can make use of reusable workflows available in the link:https://github.com/sommerfeld-io/.github[.github] repository to avoid duplication and manage the workflow logic in a central location.
 
