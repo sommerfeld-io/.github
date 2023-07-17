@@ -40,6 +40,7 @@ ignore:
   # globals
   - .git
   - .idea
+  - .vscode
   - node_modules
   - .gitpod.yml
   - target
