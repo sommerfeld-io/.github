@@ -3,7 +3,7 @@ version: 2
 
 #  +---------------------------------------------------------+
 #  |                                                         |
-#  |    This File is represents a foundation for your own    |
+#  |    This file is represents a foundation for your own    |
 #  |    dependabot config and is written into this repo      |
 #  |    by the housekeeping-repo.yml workflow. the           |
 #  |                                                         |
