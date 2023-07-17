@@ -69,8 +69,8 @@ jobs:
         run: |
           echo "[LOG_INFO] Copy .gitignore"
           cp "source-repo/resources/.gitignore" "target-repo/.gitignore"
-      - name: Copy dependabot.yml into target repo = ${{ github.event.repository.name }} if not already existing
-        if: ${{ hashFiles('.github/dependabot.yml') == '' }}
+      - name: Copy dependabot.yml (if not already existing) into target repo = ${{ github.event.repository.name }}
+        if: ${{ hashFiles('target-repo/.github/dependabot.yml') == '' }}
         run: |
           echo "---------------------------------------------------------------"
           echo "${{ hashFiles('.github/dependabot.yml') }}"
