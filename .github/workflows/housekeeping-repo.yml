@@ -65,7 +65,8 @@ jobs:
             cp "source-repo/resources/sync/linters/$file" "target-repo/$file"
           done
         shell: bash
-      - name: Copy .gitignore into target repo = ${{ github.event.repository.name }}
+      - name: Copy .gitignore (if not already existing) into target repo = ${{ github.event.repository.name }}
+        if: ${{ hashFiles('target-repo/.gitignore') == '' }}
         run: |
           echo "[LOG_INFO] Copy .gitignore"
           cp "source-repo/resources/sync/.gitignore" "target-repo/.gitignore"
