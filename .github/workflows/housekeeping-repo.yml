@@ -72,6 +72,9 @@ jobs:
       - name: Copy dependabot.yml into target repo = ${{ github.event.repository.name }} if not already existing
         if: ${{ hashFiles('.github/dependabot.yml') == '' }}
         run: |
+          echo "---------------------------------------------------------------"
+          echo "${{ hashFiles('.github/dependabot.yml') }}"
+          echo "---------------------------------------------------------------"
           echo "[LOG_INFO] Copy dependabot.yml"
           cp "source-repo/resources/dependabot.yml" "target-repo/.github/dependabot.yml"
         shell: bash
