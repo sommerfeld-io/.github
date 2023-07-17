@@ -17,7 +17,7 @@ ls:
   .css: kebab-case
   .html: kebab-case
   .js: kebab-case
-  .hbs: kebab-case # handlebars (antora ui bundle)
+  .hbs: kebab-case
   .svg: kebab-case
 
   Dockerfile: PascalCase
