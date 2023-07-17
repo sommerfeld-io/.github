@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - .github/workflows/housekeeping-repo.yml
-      - resources/linters
+      - resources
   workflow_dispatch:
   workflow_call:
 
