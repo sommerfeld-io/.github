@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - .github/workflows/housekeeping-repo.yml
-      - resources
+      - resources/sync
   workflow_dispatch:
   workflow_call:
 
@@ -62,18 +62,18 @@ jobs:
           for file in "${FILES[@]}"
           do
             echo "[LOG_INFO] Copy $file"
-            cp "source-repo/resources/linters/$file" "target-repo/$file"
+            cp "source-repo/resources/sync/linters/$file" "target-repo/$file"
           done
         shell: bash
       - name: Copy .gitignore into target repo = ${{ github.event.repository.name }}
         run: |
           echo "[LOG_INFO] Copy .gitignore"
-          cp "source-repo/resources/.gitignore" "target-repo/.gitignore"
+          cp "source-repo/resources/sync/.gitignore" "target-repo/.gitignore"
       - name: Copy dependabot.yml (if not already existing) into target repo = ${{ github.event.repository.name }}
         if: ${{ hashFiles('target-repo/.github/dependabot.yml') == '' }}
         run: |
           echo "[LOG_INFO] Copy dependabot.yml"
-          cp "source-repo/resources/dependabot.yml" "target-repo/.github/dependabot.yml"
+          cp "source-repo/resources/sync/dependabot.yml" "target-repo/.github/dependabot.yml"
         shell: bash
       - name: Commit and push target repo = ${{ github.event.repository.name }}
         uses: EndBug/add-and-commit@v9
