@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - .github/workflows/housekeeping-repo.yml
-      - resources/sync/*
+      - resources/sync/**
   workflow_dispatch:
   workflow_call:
 
