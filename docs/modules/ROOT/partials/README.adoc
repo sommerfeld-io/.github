@@ -17,9 +17,7 @@ Additionally this project provides Issue Templates and Pull Request Templates wh
 Since this repo mainly is used for Reusable Workflows, see the the link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[official docs from Github on Reusing Workflows] for general information.
 
 === Houskeeping Workflows  that affect all Repositories
-This repository serves as a centralized location for automated housekeeping workflows that apply to all repositories within the link:https://github.com/sommerfeld-io[sommerfeld.io organisation].
-
-One such workflow is the "Organization Housekeeping: Linter Rules" workflow. This workflow ensures uniformity by enforcing the use of the same set of linter rules (such as yamllint, shellcheck, etc.) and the same .gitignore file across all repositories. By centralizing these rules and configurations, we eliminate the need for each individual repository to manage and update them separately. This approach prevents inconsistencies and reduces the likelihood of outdated or inconsistent rule sets across our repositories.
+This repository serves as a centralized location for automated workflows which affect all repositories within the link:https://github.com/sommerfeld-io[sommerfeld.io organisation]. These workflows serve a variety of purposes, including generating statistics and validating repository configurations that should remain consistent and unchangeable across all repositories. By placing these validation workflows in a centralized location, it ensures compliance and consistency organization-wide. This approach prevents individual repositories from modifying or removing these workflows independently, providing a reliable and standardized means of enforcing desired configurations and ensuring adherence to established guidelines.
 
 === Utilize Reusable Workflows from this repository
 Within this repository, you will find three distinct reusable workflows that can be readily applied to streamline your development processes. These workflows are designed to enhance efficiency and provide concrete examples of how to leverage the power of automation in your projects.
