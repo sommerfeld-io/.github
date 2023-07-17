@@ -69,13 +69,18 @@ jobs:
         run: |
           echo "[LOG_INFO] Copy .gitignore"
           cp "source-repo/resources/.gitignore" "target-repo/.gitignore"
+      - name: Copy dependabot.yml into target repo = ${{ github.event.repository.name }} if not already existing
+        if: ${{ hashFiles('.github/dependabot.yml') != '' }}
+        run: |
+          echo "[LOG_INFO] Copy dependabot.yml"
+          cp "source-repo/resources/dependabot.yml" "target-repo/.github/dependabot.yml"
         shell: bash
       - name: Commit and push target repo = ${{ github.event.repository.name }}
         uses: EndBug/add-and-commit@v9
         with:
           author_name: sebastian
           author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] updated linter rules"
+          message: "[Actions Bot] Synced mandatory files into this repo"
           cwd: target-repo
 
   configure-repo:
