@@ -44,7 +44,7 @@ jobs:
         uses: sebastian-sommerfeld-io/github-action-generate-readme@main
         with:
           caption: ${{ github.event.repository.name }}
-      - name: Generate docs from bash scripts
+      - name: Generate docs from source code
         uses: sebastian-sommerfeld-io/github-action-generate-docs@main
       - name: Commit and push
         uses: EndBug/add-and-commit@v9
