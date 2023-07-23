@@ -15,14 +15,14 @@
     "docs/modules/*/partials/*",
     "docs/modules/*/partials/**",
 
-    "pages/**",
-
     "profile",
 
     "src/main/**",
     "src/test/**",
 
-    "resources/**", 
+    "resources/**",
+
+    "sites/**",
 
     "node_modules/**",
     "target/**"
