@@ -22,3 +22,6 @@ tfplan
 # Antora UI bundle
 src/main/ui/build
 src/main/ui/public
+
+# Hugo
+sites/root/public
