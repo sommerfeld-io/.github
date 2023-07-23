@@ -15,6 +15,8 @@
     "docs/modules/*/partials/*",
     "docs/modules/*/partials/**",
 
+    "pages/**",
+
     "profile",
 
     "src/main/**",
