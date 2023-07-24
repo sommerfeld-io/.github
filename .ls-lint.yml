@@ -51,7 +51,4 @@ ignore:
 
   # hugo
   - sites/root/resources/_gen
-  - sites/root/static/css/fontawesome-all.min.css
-  - sites/root/static/js/fontawesome-all.min.js
-  - sites/root/themes/hugo-story
-  - sites/root/layouts/partials/elements_reference.html
+  - _index.adoc
