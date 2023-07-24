@@ -49,6 +49,7 @@ ignore:
   - src/main/ui/.gulp.json
   - src/main/ui/src/js/vendor/highlight.bundle.js
 
-  # hugo
+  # hugo (startpage)
   - sites/root/resources/_gen
-  - _index.adoc
+  - sites/root/content/_index.adoc
+  - sites/root/themes/hugo-split-theme/exampleSite/content/_index.md
