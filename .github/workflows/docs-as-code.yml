@@ -51,7 +51,7 @@ jobs:
         with:
           author_name: sebastian
           author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] docs: auto-generated docs"
+          message: "[Actions Bot] docs: auto-generate docs"
 
   validate-links:
     runs-on: ubuntu-latest

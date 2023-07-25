@@ -90,7 +90,7 @@ jobs:
         with:
           author_name: sebastian
           author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] updated linter rules"
+          message: "[Actions Bot] update linter rules"
           cwd: target-repo
 
   on-failure:

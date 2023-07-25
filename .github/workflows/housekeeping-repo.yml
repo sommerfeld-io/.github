@@ -81,7 +81,7 @@ jobs:
         with:
           author_name: sebastian
           author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] Synced mandatory files into this repo"
+          message: "[Actions Bot] Sync mandatory files into this repo"
           cwd: target-repo
 
   configure-repo:
