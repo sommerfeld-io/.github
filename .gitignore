@@ -20,8 +20,7 @@ tfplan
 *.secret
 
 # Antora UI bundle
-src/main/ui/build
-src/main/ui/public
-
-# Hugo
-sites/root/public
+src/main/ui-blog/build
+src/main/ui-blog/public
+src/main/ui-docs/build
+src/main/ui-docs/public
