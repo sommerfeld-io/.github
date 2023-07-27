@@ -1,0 +1,35 @@
+---
+name: "Module: Release Validate Inputs"
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  info:
+    name: info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print repo name which runs the workflow
+        run: echo "[INFO] repo = ${{ github.event.repository.name }}"
+        shell: bash
+
+  validate-inputs:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Info
+        run: |
+          echo "Github Ref = ${{ github.ref }}"
+          echo "Github Event = ${{ github.event_name }}"
+          echo "Tag with version = ${{ github.event.inputs.version }}"
+          echo "Publish Artifacts = ${{ github.event.inputs.publish }}"
+        shell: bash
+      - name: Validate version
+        uses: sommerfeld-io/semver-action@main
+        with:
+          command: validate
+          version: ${{ github.event.inputs.version }}
+          flags: --json
