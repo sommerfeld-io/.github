@@ -35,7 +35,7 @@ jobs:
 
   lint-forbidden-folders:
     runs-on: ubuntu-latest
-    if: github.repository != 'sommerfeld-io/.github'
+    if: github.event.repository.name != 'sommerfeld-io/.github'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
