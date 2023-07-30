@@ -1,5 +1,5 @@
 = sommerfeld-io
 
-The "fb-brunnenbau" GitHub organization is a collection of repositories that contain all the code and projects related to the website link:https://www.fb-brunnenbau.de[www.fb-brunnenbau.de]. This organization serves as a centralized hub where the team at FB-Brunnenbau manages and maintains the codebase for their website and any related tools and projects.
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 
 www.sommerfeld.io
