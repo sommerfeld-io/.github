@@ -27,7 +27,9 @@
     "profile",
 
     "src/main/**",
+    "src/templates/**",
     "src/test/**",
+    "src/util/**",
 
     "resources/**",
 
