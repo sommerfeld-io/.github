@@ -26,4 +26,4 @@ src/main/ui-docs/build
 src/main/ui-docs/public
 src/main/ui-falcon/build
 src/main/ui-falcon/public
-src/template/falcon-v3.10.0/public
+src/templates/**/public
