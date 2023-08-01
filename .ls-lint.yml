@@ -45,8 +45,7 @@ ignore:
   - .yamllint.yml
   - resources/sync/linters
 
-  # antora ui bundle
-  - src/main/ui-blog/.gulp.json
-  - src/main/ui-blog/src/js/vendor/highlight.bundle.js
+  # antora ui
   - src/main/ui-docs/.gulp.json
   - src/main/ui-docs/src/js/vendor/highlight.bundle.js
+  - src/templates/falcon-v3.17.0
