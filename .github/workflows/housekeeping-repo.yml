@@ -85,6 +85,13 @@ jobs:
         run: |
           echo "[LOG_INFO] Copy .gitignore"
           cp "source-repo/resources/sync/.gitignore" "target-repo/.gitignore"
+        shell: bash
+      - name: Copy .pre-commit-config.yaml (if not already existing) into target repo = ${{ github.event.repository.name }}
+        if: ${{ hashFiles('target-repo/.pre-commit-config.yaml') == '' }}
+        run: |
+          echo "[LOG_INFO] Copy .pre-commit-config.yaml"
+          cp "source-repo/resources/sync/.pre-commit-config.yaml" "target-repo/.pre-commit-config.yaml"
+        shell: bash
       - name: Copy dependabot.yml (if not already existing) into target repo = ${{ github.event.repository.name }}
         if: ${{ hashFiles('target-repo/.github/dependabot.yml') == '' }}
         run: |

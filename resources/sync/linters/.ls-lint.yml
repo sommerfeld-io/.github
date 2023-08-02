@@ -43,6 +43,7 @@ ignore:
   - .adoc-links.json
   - .ls-lint.yml
   - .yamllint.yml
+  - .pre-commit-config.yaml
   - resources/sync/linters
 
   # antora ui
