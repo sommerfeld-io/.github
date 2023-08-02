@@ -8,6 +8,8 @@
 # Every time you clone a project using pre-commit running pre-commit install should always be the
 # first thing you do.
 #
+# IMPORTANT: For pre-commit to work, this file must carry the extension ``.yaml``, NOT ``.yml``.
+#
 # == Install the git hook scripts
 #
 # run ``pre-commit install`` to set up the git hook scripts. Now pre-commit will run automatically
