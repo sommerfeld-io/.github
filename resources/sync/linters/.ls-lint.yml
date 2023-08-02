@@ -44,7 +44,7 @@ ignore:
   - .ls-lint.yml
   - .yamllint.yml
   - .pre-commit-config.yaml
-  - resources/sync/linters
+  - resources/sync
 
   # antora ui
   - src/main/ui-docs/.gulp.json
