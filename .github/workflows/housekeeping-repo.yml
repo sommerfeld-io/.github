@@ -1,4 +1,19 @@
 ---
+# @file housekeeping-labels.yml
+# @brief Github Actions workflow that manages the global repository config and that allows to sync linter rule sets into repos.
+#
+# @description The workflow guarantees a consistent configuration of the repository itself by
+# automating tasks such as enabling and disabling certain features (e.g., the wiki feature) or
+# applying specific settings. This ensures that the repository maintains a standardized and
+# controlled environment, aligning with the desired configuration.
+#
+# The workflow acts as a self-contained automation for this repository as well as a reusable
+# workflow module for other repositories. This means that other projects can include this
+# workflow, enabling a consistent repository configuration.
+#
+# == See also
+#
+# * Gthub docs on link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[Reusable workflows]
 name: "Housekeeping: Repository"
 
 on:

@@ -1,4 +1,26 @@
 ---
+# @file docs-as-code.yml
+# @brief Github Actions workflow that generates Asciidoc documentation based on source code from this repo and updates the projects README file.
+#
+# @description This GitHub Actions workflow serves the purpose of generating Asciidoc documentation
+# based on the source code from the repository and updating the project's ``README.adoc`` based on
+# contents from the Antora docs. It is designed to automatically trigger whenever new code is pushed
+# to the remote repository. Additionally, it is scheduled to run each night to ensure the
+# documentation is up-to-date.
+#
+# The workflow acts as a self-contained automation for this repository, providing a seamless way to
+# generate and update documentation whenever changes are made to the codebase. Moreover, its design
+# allows it to be reused as a reusable workflow module for other repositories. This means that other
+# projects can include this workflow, enabling them to have consistent and automated documentation
+# generation.
+#
+# By utilizing this workflow, the project ensures that the Asciidoc documentation stays in sync with
+# the latest code changes. This leads to improved documentation quality and better project
+# understanding.
+#
+# == See also
+#
+# * Gthub docs on link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[Reusable workflows]
 name: Generate Docs (as Code)
 
 on:
