@@ -40,29 +40,9 @@ This repository serves as a centralized location for automated workflows which a
 === Utilize Reusable Workflows from this repository
 Within this repository, you will find three distinct reusable workflows that can be readily applied to streamline your development processes. These workflows are designed to enhance efficiency and provide concrete examples of how to leverage the power of automation in your projects.
 
-==== Housekeeping: Issues
-The workflow, that is called this way, handles the automatic assignment of newly created issues and pull requests to specific projects and users. By leveraging this workflow, tasks and contributions are efficiently tracked and assigned, ensuring clear ownership and streamlined collaboration within your development projects.
-
-[source,yml]
-----
-include::ROOT:example$housekeeping-issues.yml[]
-----
-
-==== Housekeeping: Labels
-The workflow, that is called this way, is responsible for deleting unnecessary labels and creating the required labels for issues and pull requests. By executing this workflow, it ensures a streamlined and organized labeling system, enabling effective categorization and tracking of tasks and contributions within your projects. Since the labels are managed through this workflow, the settings from link:https://github.com/organizations/sommerfeld-io/settings/repository-defaults[GitHub organizations label-config] don't take effect.
-
-[source,yml]
-----
-include::ROOT:example$housekeeping-labels.yml[]
-----
-
-==== Housekeeping: Repo
-The workflow, that is called this way, guarantees a consistent configuration of the repository itself by automating tasks such as enabling and disabling certain features (e.g., the wiki feature) or applying specific settings. This ensures that the repository maintains a standardized and controlled environment, aligning with the desired configuration.
-
-[source,yml]
-----
-include::ROOT:example$housekeeping-repo.yml[]
-----
+* Housekeeping Issues -> TODO Link
+* Housekeeping Labels -> TODO Link
+* Housekeeping: Repo -> TODO Links
 
 ==== Generate Docs (as Code)
 This workflow automates the generation of the project's README.adoc file by extracting information from the Antora documentation of the repository. Additionally, it generates Asciidoc documentation into a dedicated Antora module for all bash scripts within the repository. All bash scripts must cmply to link:https://github.com/reconquest/shdoc[shdoc] documentation style. This automated process enhances consistency, accuracy, and readability of the project documentation, providing valuable insights and comprehensive information for users and contributors.
@@ -72,25 +52,7 @@ This workflow automates the generation of the project's README.adoc file by extr
 include::ROOT:example$docs-as-code.yml[]
 ----
 
-==== Module: CI Linter
-This Reusable Workflow (`sommerfeld-io/.github/.github/workflows/module-ci-lint.yml`) serves as a module that offers essential linter functionalities which are common to all repositories. This module is designed to be called from other workflows and never runs independently within the `.github` repository. By including this reusable workflow in other workflows, developers can easily incorporate common linting capabilities into their specific workflows, promoting code quality and adherence to predefined standards. 
-
-[source,yml]
-----
-# [...]
-jobs:
-  # [...]
-
-  module-ci-lint:
-    uses: sommerfeld-io/.github/.github/workflows/module-ci-lint.yml@main
-
-  # [...]
-----
-
-There is no need to manage the linter rule sets on your own for each repository. The "Organization Housekeeping: Linter Rules" workflow guarantees that all required linter rule sets are present and up to date in every repository within the link:https://github.com/sommerfeld-io[sommerfeld.io organisation] (see above). This streamlined approach eliminates the burden of manually managing and updating rule sets in individual repositories, saving time and promoting code consistency.
-
-=== More Modules
-In addition to the aforementioned Reusable Workflow module, there are other modules available within the repository. These modules can be similarly utilized by calling them from other workflows. For an overview of available modules, please visit https://github.com/sommerfeld-io/.github/tree/main/.github/workflows.
+* Module CI Linter -> TODO: Link
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issus labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
