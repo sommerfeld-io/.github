@@ -14,6 +14,20 @@
 #
 # run ``pre-commit install`` to set up the git hook scripts. Now pre-commit will run automatically
 # on git commit.
+
+
+#  +-------------------------------------------------------+
+#  |                                                       |
+#  |    This file represents a foundation for your own     |
+#  |    dependabot config and is written into this repo    |
+#  |    by the housekeeping-repo.yml workflow. the         |
+#  |                                                       |
+#? |    However, feel free to update this file             |
+#? |    because changes won't be overwritten.              |
+#  |                                                       |
+#  +-------------------------------------------------------+
+
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
