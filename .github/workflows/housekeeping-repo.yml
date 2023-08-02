@@ -1,5 +1,5 @@
 ---
-# @file housekeeping-labels.yml
+# @file housekeeping-repo.yml
 # @brief Github Actions workflow that manages the global repository config and that allows to sync linter rule sets into repos.
 #
 # @description The workflow guarantees a consistent configuration of the repository itself by
