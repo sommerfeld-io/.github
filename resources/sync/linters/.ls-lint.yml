@@ -11,6 +11,7 @@ ls:
   .tf: kebab-case
   .yml: kebab-case
   .yaml: kebab-case
+  .feature: kebab-case # cucumber
 
   .sh: kebab-case
 
