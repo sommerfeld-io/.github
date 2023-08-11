@@ -42,9 +42,10 @@ ignore:
 
   # linter definitions
   - .adoc-links.json
+  - .gherkin-lintrc.json
   - .ls-lint.yml
-  - .yamllint.yml
   - .pre-commit-config.yaml
+  - .yamllint.yml
   - resources/sync
 
   # antora ui
