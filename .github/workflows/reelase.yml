@@ -1,0 +1,141 @@
+---
+# @file release.yml
+# @brief Github Actions to create a new release of this software project (= this repository).
+#
+# @description This GitHub Actions workflow automates the release process for the software project
+# hosted in this repository. Its main objective is to create new releases while ensuring consistency
+# and reliability in the release management.
+#
+# It automatically creates version tags in the project's repository, based on the ``version`` input
+# parameter.
+#
+# The workflow generates release notes and metadata, which are used to create GitHub releases
+# associated with the version tags. This helps maintain a clear record of all project releases and
+# their corresponding changes. However, in case an intro text or description is needed, it must be
+# added manually after the worflow succeeded.
+#
+# The workflow also handles artifact deployment, such as publishing Docker images to DockerHub
+# (including updateing the description on DockerHu8b). This ensures that the released artifacts are
+# readily available for users or other systems.
+#
+# It's essential to emphasize that this GitHub Actions workflow is the recommended and only authorized
+# way to create releases. The workflow is triggered manually through the GitHub UI. All other ways to
+# create releases are discouraged to maintain a standardized and error-free release process.
+#
+# By relying on this automated pipeline for releases, the project streamlines its release workflow,
+# reduces the likelihood of errors, and provides users with access to stable and up-to-date software
+# versions.
+name: Deploy + Release
+
+on:
+  workflow_dispatch:
+    # If the version is a v0.1.2-alpha or v0.1.2-beta, only this tag is
+    # published and latest remains unchanged.
+    inputs:
+      version:
+        description: Version (= new tag, e.g. v0.2.0)
+        required: true
+      publish:
+        type: boolean
+        description: If true, artifacts are published to DockerHub etc.
+        required: true
+        default: true
+
+env:
+  IMAGE: sommerfeldio/semver
+
+permissions:
+  contents: read
+
+jobs:
+  call-workflow:
+    uses: sommerfeld-io/.github/.github/workflows/module-release-validate-inputs.yml@main
+
+  update-version:
+    runs-on: ubuntu-latest
+    needs: call-workflow
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Adjust version in antora.yml
+        uses: sebastian-sommerfeld-io/github-action-update-antora-yml@main
+        with:
+          git_ref: ${{ github.event.inputs.version }}
+      - name: Run yamllint for docs/antora.yml
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: docs/antora.yml
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: sebastian
+          author_email: sebastian@sommerfeld.io
+          message: "[Actions Bot] auto-generated version"
+
+  github-tag-and-release:
+    runs-on: ubuntu-latest
+    needs: validate-deploy-dockerhub
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Create tag and Github release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
+        # If a matching git tag does not yet exist, it will automatically get created
+        # from the latest state of the default branch.
+        run: |
+          if [[ "${{ github.event.inputs.version }}" != *"-alpha"* && "${{ github.event.inputs.version }}" != *"-beta"* ]]; then
+            gh release create "${{ github.event.inputs.version }}" --generate-notes
+          else
+            gh release create "${{ github.event.inputs.version }}" --prerelease --generate-notes
+          fi
+        shell: bash
+
+  reset-version:
+    runs-on: ubuntu-latest
+    needs: github-tag-and-release
+    permissions:
+      contents: write
+    steps:
+        # CONSIDER THIS when checking out the latest code base:
+        # https://github.com/actions/checkout/issues/439#issuecomment-830862188
+        # The branch, tag or SHA to checkout. When checking out the repository that
+        # triggered a workflow, this defaults to the reference or SHA for that event.
+        # Otherwise, uses the default branch.
+        # To get the latest code base, the branch must be specified explicitely
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: main
+      - name: DEBUG SHA
+        run: git rev-parse --verify HEAD
+        shell: bash
+      - name: Adjust version in antora.yml
+        uses: sebastian-sommerfeld-io/github-action-update-antora-yml@main
+        with:
+          git_ref: refs/heads/main
+      - name: Run yamllint for docs/antora.yml
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: docs/antora.yml
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v9.1.3
+        with:
+          author_name: sebastian
+          author_email: sebastian@sommerfeld.io
+          message: "[Actions Bot] auto-generated version"
+
+  on-failure:
+    runs-on: ubuntu-latest
+    needs: ['call-workflow', 'update-version', 'github-tag-and-release', 'reset-version']
+    if: failure()
+    steps:
+      - name: Send Pipeline Status to Google Chat
+        if: always()
+        uses: Co-qn/google-chat-notification@releases/v1
+        with:
+          name: ${{ github.workflow }}
+          url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          status: failure
