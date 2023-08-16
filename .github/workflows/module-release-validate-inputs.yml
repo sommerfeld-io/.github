@@ -63,5 +63,4 @@ jobs:
         uses: sommerfeld-io/semver-action@main
         with:
           command: validate
-          version: ${{ github.event.inputs.version }}
-          flags: --json
+          currentVersion: ${{ github.event.inputs.version }}
