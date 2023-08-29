@@ -65,21 +65,6 @@ jobs:
           echo "[INFO] target repo contents"
           ls target-repo
         shell: bash
-      - name: Copy linter rules into target repo = ${{ github.event.repository.name }}
-        run: |
-          FILES=(
-            '.adoc-links.json'
-            '.folderslintrc'
-            '.ls-lint.yml'
-            '.shellcheckrc'
-            '.yamllint.yml'
-          )
-          for file in "${FILES[@]}"
-          do
-            echo "[LOG_INFO] Copy $file"
-            cp "source-repo/resources/sync/linters/$file" "target-repo/$file"
-          done
-        shell: bash
       - name: Copy .gitignore (if not already existing) into target repo = ${{ github.event.repository.name }}
         if: ${{ hashFiles('target-repo/.gitignore') == '' }}
         run: |
