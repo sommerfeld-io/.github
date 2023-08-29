@@ -12,7 +12,7 @@
 // Source file = /github/workspace/.github/workflows/housekeeping-repo.yml
 
 
-Github Actions workflow that manages the global repository config and that allows to sync linter rule sets into repos.
+Github Actions workflow that manages the global repository config and that allows to sync some commont files into repos (if not already present).
 
 == Overview
 
