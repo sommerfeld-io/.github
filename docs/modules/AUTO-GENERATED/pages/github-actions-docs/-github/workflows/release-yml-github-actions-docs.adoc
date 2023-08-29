@@ -1,4 +1,4 @@
-= reelase.yml
+= release.yml
 
 // +-------------------------------------------+
 // |                                           |
@@ -9,7 +9,7 @@
 // |                                           |
 // +-------------------------------------------+
 
-// Source file = /github/workspace/.github/workflows/reelase.yml
+// Source file = /github/workspace/.github/workflows/release.yml
 
 
 Github Actions to create a new release of this software project (= this repository).
