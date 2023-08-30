@@ -6,14 +6,8 @@
 # automating tasks such as enabling and disabling certain features (e.g., the wiki feature) or
 # applying specific settings. This ensures that the repository maintains a standardized and
 # controlled environment, aligning with the desired configuration.
-#
-# The workflow acts as a self-contained automation for this repository as well as a reusable
-# workflow module for other repositories. This means that other projects can include this
-# workflow, enabling a consistent repository configuration.
-#
-# == See also
-#
-# * Gthub docs on link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[Reusable workflows]
+
+
 name: "Housekeeping: Repository"
 
 on:
@@ -26,104 +20,17 @@ on:
       - .github/workflows/housekeeping-repo.yml
       - resources/sync/**
   workflow_dispatch:
-  workflow_call:
 
 permissions:
   contents: write
 
 jobs:
-  info:
-    name: info
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print repo name which runs the workflow
-        run: echo "[INFO] repo = ${{ github.event.repository.name }}"
-        shell: bash
-
-  sync-files-into-repo:
-    name: sync-files-into-repo
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print repo name which runs the workflow
-        run: echo "[INFO] repo = ${{ github.event.repository.name }}"
-        shell: bash
-      - name: Checkout code source repo = .github
-        uses: actions/checkout@v3
-        with:
-          repository: "sommerfeld-io/.github"
-          path: source-repo
-      - name: Checkout code target repo = ${{ github.event.repository.name }}
-        uses: actions/checkout@v3
-        with:
-          repository: "sommerfeld-io/${{ github.event.repository.name }}"
-          ref: main
-          path: target-repo
-      - name: Info
-        run: |
-          echo "[INFO] source repo contents"
-          ls source-repo
-          echo "[INFO] target repo contents"
-          ls target-repo
-        shell: bash
-      - name: Copy .gitignore (if not already existing) into target repo = ${{ github.event.repository.name }}
-        if: ${{ hashFiles('target-repo/.gitignore') == '' }}
-        run: |
-          echo "[LOG_INFO] Copy .gitignore"
-          cp "source-repo/resources/sync/.gitignore" "target-repo/.gitignore"
-        shell: bash
-      - name: Copy .pre-commit-config.yaml (if not already existing) into target repo = ${{ github.event.repository.name }}
-        if: ${{ hashFiles('target-repo/.pre-commit-config.yaml') == '' }}
-        run: |
-          echo "[LOG_INFO] Copy .pre-commit-config.yaml"
-          cp "source-repo/resources/sync/.pre-commit-config.yaml" "target-repo/.pre-commit-config.yaml"
-        shell: bash
-      - name: Copy dependabot.yml (if not already existing) into target repo = ${{ github.event.repository.name }}
-        if: ${{ hashFiles('target-repo/.github/dependabot.yml') == '' }}
-        run: |
-          echo "[LOG_INFO] Copy dependabot.yml"
-          cp "source-repo/resources/sync/dependabot.yml" "target-repo/.github/dependabot.yml"
-        shell: bash
-      - name: Commit and push target repo = ${{ github.event.repository.name }}
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: sebastian
-          author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] Sync mandatory files into this repo"
-          cwd: target-repo
-
-  configure-repo:
-    name: configure-repo
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Read repository information from API
-        run: |
-          echo "[INFO] Get repo sommerfeld-io/${{ github.event.repository.name }}"
-          gh api "repos/sommerfeld-io/${{ github.event.repository.name }}"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: bash
-      # - name: Configure repository
-      #   # Don't set discussions for each repo.
-      #   # They are configured at organization level.
-      #   run: |
-      #     echo "[INFO] Configure repo sommerfeld-io/${{ github.event.repository.name }}"
-      #     gh api --method PATCH \
-      #       -H "Accept: application/vnd.github+json" \
-      #       -H "X-GitHub-Api-Version: 2022-11-28" \
-      #       "repos/sommerfeld-io/${{ github.event.repository.name }}" \
-      #       -F visibility=public \
-      #       -F has_issues=true \
-      #       -F has_projects=true \
-      #       -F has_wiki=false
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   shell: bash
+  call-workflow:
+    uses: sommerfeld-io/dev-environment-config/.github/workflows/module-housekeeping-repo.yml@main
 
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['info', 'configure-repo', 'sync-files-into-repo']
+    needs: call-workflow
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat
