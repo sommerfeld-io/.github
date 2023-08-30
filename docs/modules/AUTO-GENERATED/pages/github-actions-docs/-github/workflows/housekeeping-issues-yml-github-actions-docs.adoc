@@ -21,11 +21,3 @@ created issues and pull requests to specific projects and users. By leveraging t
 tasks and contributions are efficiently tracked and assigned, ensuring clear ownership and
 streamlined collaboration within your development projects. It is designed to automatically
 trigger whenever new issues or Pull Requests are created.
-
-The workflow acts as a self-contained automation for this repository as well as a reusable
-workflow module for other repositories. This means that other projects can include this
-workflow, enabling a consistent and automated issue and PR management.
-
-== See also
-
-* Gthub docs on link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[Reusable workflows]
