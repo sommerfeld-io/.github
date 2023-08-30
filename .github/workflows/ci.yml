@@ -8,6 +8,8 @@
 # their changes. The workflow triggers automatically when new code is pushed to the remote repo
 # and automatically each night, making it an integral part of the development process to maintain
 # a stable and reliable codebase.
+
+
 name: CI
 
 on:
