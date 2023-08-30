@@ -4,33 +4,13 @@ image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={githu
 image:{github-actions-url}/{job-ci}/{badge}[Github Badge, link={github-actions-url}/{job-ci}]
 
 == About this project
-The `.github` repository serves as a central repository within GitHub that issue templates, GitHub Actions workflows, etc. for all our projects that don't have an actual .github directory with issue templates and other community health files on their own.
-
-This project provides Reusable Workflows to use from other repositories. This avoids code duplications and removes the need for complex syncing mechanisms to keep every repo up to date.
-
-Additionally this project provides Issue Templates and Pull Request Templates which are inherited from every other project of the link:https://github.com/sommerfeld-io[sommerfeld.io GitHub organisation], because all of these projects do not define Issue Templates or Pull Request Templates on their own.
+The `.github` repository serves as a central repository within GitHub and provides Issue Templates and Pull Request Templates which are inherited from every other project of the link:https://github.com/sommerfeld-io[sommerfeld.io GitHub organisation], because all of these projects do not define Issue Templates or Pull Request Templates on their own.
 
 * Github Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
 
 == How to use this project
 Since this repo mainly is used for Reusable Workflows, see the the link:https://docs.github.com/en/actions/using-workflows/reusing-workflows[official docs from Github on Reusing Workflows] for general information.
-
-=== Houskeeping Workflows that affect all Repositories
-This repository serves as a centralized location for automated workflows which affect all repositories within the link:https://github.com/sommerfeld-io[sommerfeld.io organisation]. These workflows serve a variety of purposes, including generating statistics and validating repository configurations that should remain consistent and unchangeable across all repositories. By placing these validation workflows in a centralized location, it ensures compliance and consistency organization-wide. This approach prevents individual repositories from modifying or removing these workflows independently, providing a reliable and standardized means of enforcing desired configurations and ensuring adherence to established guidelines.
-
-=== Utilize Reusable Workflows from this repository
-Within this repository, you will find three distinct reusable workflows that can be readily applied to streamline your development processes. These workflows are designed to enhance efficiency and provide concrete examples of how to leverage the power of automation in your projects.
-
-include::AUTO-GENERATED:partial$/github-actions-docs/nav.adoc[]
-
-==== Generate Docs (as Code)
-This workflow automates the generation of the project's README.adoc file by extracting information from the Antora documentation of the repository. Additionally, it generates Asciidoc documentation into a dedicated Antora module for all bash scripts within the repository. All bash scripts must cmply to link:https://github.com/reconquest/shdoc[shdoc] documentation style. This automated process enhances consistency, accuracy, and readability of the project documentation, providing valuable insights and comprehensive information for users and contributors.
-
-[source,yml]
-----
-include::ROOT:example$docs-as-code.yml[]
-----
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
