@@ -13,7 +13,7 @@
 # understanding.
 
 
-name: Generate Docs (as Code)
+name: Generate Docs
 
 on:
   push:
