@@ -31,7 +31,7 @@ concurrency:
 
 jobs:
   call-module:
-    uses: sommerfeld-io/dev-environment-config/.github/workflows/module-docs-as-code.yml@v0.1.0-alpha.3
+    uses: sommerfeld-io/dev-environment-config/.github/workflows/module-docs-as-code.yml@main
 
   on-failure:
     runs-on: ubuntu-latest
