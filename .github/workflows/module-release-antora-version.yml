@@ -51,9 +51,9 @@ on:
         required: true
         type: string
       file:
+        default: 'docs/antora.yml'
         required: false
         type: string
-        default: docs/antora.yml
 
 permissions:
   contents: write
