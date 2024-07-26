@@ -1,6 +1,6 @@
 ---
-name: Risk and/or technical debt
-about: Describe a Risk and/or a technical debt
+name: Architecture Decision Record
+about: Discuss and decide architecture-related topics
 title: ''
 labels: ADR
 assignees: ''
