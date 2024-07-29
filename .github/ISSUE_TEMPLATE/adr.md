@@ -1,14 +1,14 @@
 ---
 name: Architecture Decision Record
 about: Discuss and decide architecture-related topics
-title: ''
+title: 'ADR 000 - '
 labels: ADR
 assignees: ''
 ---
 
-| Status                         | Decision Date | Outcome        |
-|--------------------------------|---------------|----------------|
-| _Proposed / Accepted / Denied_ | 20xx-xx-xx    | _Short summary |
+| Status                              | Decision Date      | Outcome               |
+|-------------------------------------|--------------------|-----------------------|
+| :zap:_Proposed / Accepted / Denied_ | :zap:20xx-xx-xx    | :zap: _Short summary_ |
 
 ### Context
 :zap: _Provide some context and information about the background of the ADR. Explain the options that should be investigated by this ADR._
