@@ -2,7 +2,7 @@
 name: Architecture Decision Record
 about: Discuss and decide architecture-related topics
 title: 'ADR 000 - '
-labels: ADR needs-triage
+labels: ADR, needs-triage
 assignees: ''
 ---
 
