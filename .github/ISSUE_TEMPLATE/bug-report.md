@@ -7,16 +7,16 @@ assignees: ''
 ---
 
 ### Describe the bug
-A clear and concise description of what the bug is. Include  steps to reproduce the behavior.
+:zap: _A clear and concise description of what the bug is. Include  steps to reproduce the behavior._
 
 ### Expected behavior
-A clear and concise description of what you expected to happen.
+:zap: _A clear and concise description of what you expected to happen._
 
 ### Environment
-Please provide some information about your environment (Windows, WSL, Linux (Distro), App Version, Docker Version, ...).
+:zap: _Please provide some information about your environment (Windows, WSL, Linux (Distro), App Version, Docker Version, ...)._
 
 ### Screenshots, Files, Console Output, etc.
-If applicable, add screenshots or any other form of data to help explain your problem.
+:zap: _If applicable, add screenshots or any other form of data to help explain your problem._
 
 ### Additional context
-Add any other context about the problem here.
+:zap: _Add any other context about the problem here._
