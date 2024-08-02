@@ -6,9 +6,9 @@ labels: userstory
 assignees: ''
 ---
 
-As a _role_ I can _capability_, so that _receive benefit_.
+:zap: As a _role_ I can _capability_, so that _receive benefit_.
 
-_What is the feature (and its scenarios) we want to introduce? Does the user story description reflect that?_
+:zap: _What is the feature (and its scenarios) we want to introduce? Does the user story description reflect that?_
 
 ### Acceptance Criteria
 - [ ] Should be precise!
