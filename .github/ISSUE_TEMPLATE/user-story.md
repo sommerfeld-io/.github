@@ -2,7 +2,7 @@
 name: User Story
 about: Describe a new feature (only one single feature at best)
 title: ''
-labels: userstory
+labels: user-story
 assignees: ''
 ---
 
@@ -11,25 +11,23 @@ assignees: ''
 :zap: _What is the feature (and its scenarios) we want to introduce? Does the user story description reflect that?_
 
 ### Acceptance Criteria
-- [ ] Should be precise!
-- [ ] Should use Given ... When ... Then if possible
-- [ ] Should ...
-- [ ] Should ...
-- [ ] Should ...
+- [ ] Scenario: Name
+    - Given ...
+    - When ...
+    - Then ...
+- [ ] Scenario: Name
+    - Given ...
+    - When ...
+    - Then ...
 
-### Tasks
-- [ ] Translate the user story into executable specifications
-- [ ] Create a minimum of one acceptance test for each acceptance criteria
-- [ ] Use Given When Then (and probably Gherkin/Cucumber)
-- [ ] If you cannot think about phrasing these tests, you check if you really understand the problem
-- [ ] Use ubiquitous language based on the language of the problem domain
-- [ ] ...
+#### :zap: Memo (remove when story is ready)
+- :zap: Translate the user story into executable specifications
+    - :zap: Create a minimum of one acceptance test for each acceptance criteria
+    - :zap: Use Given When Then (and probably Gherkin/Cucumber)
+    - :zap: If you cannot think about phrasing these tests, check if you really understand the problem
+    - :zap: Use ubiquitous language based on the language of the problem domain
+    - :zap: When a dedicated file from the code repository is used to define the acceptance criteria, do not repeat here. Just link to the proper definitions
 
-### Memos (remove when story is ready)
-#### Translate into executable specification
-> Feature: Name
-> Description from user story (maybe shortened).
-> Scenario: The acceptance criteria
->     Given ...
->     When ...
->     Then ...
+### Post-Implementation Tasks (Examples)
+- [ ] :zap: Measure _related metric_ after implementation for _period of time_.
+- [ ] :zap: Track the reduction in _related metric_ related to the feature for _period of time_.
