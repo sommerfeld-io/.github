@@ -2,7 +2,7 @@
 name: Risk and/or technical debt
 about: Describe a Risk and/or a technical debt
 title: ''
-labels: risk, task
+labels: risk, task, needs-triage
 assignees: ''
 ---
 

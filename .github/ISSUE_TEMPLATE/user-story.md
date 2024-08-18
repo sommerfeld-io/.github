@@ -2,7 +2,7 @@
 name: User Story
 about: Describe a new feature (only one single feature at best)
 title: ''
-labels: user-story
+labels: user-story, needs-triage
 assignees: ''
 ---
 
