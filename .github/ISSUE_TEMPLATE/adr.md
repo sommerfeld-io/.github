@@ -26,4 +26,4 @@ assignees: ''
 :zap: _Explain which consequences and/or follow-up todos come with the decision._
 
 ### Author
-ChatGPT (this ADR was created with the help of ChatGPT, but the decision lies with the team, not the AI). :zap: _Update accordingly_
+ChatGPT - This ADR was created with the help of ChatGPT but was refined by the team. The decision lies with the team, not the AI. :zap: _Update accordingly_
