@@ -11,7 +11,7 @@ assignees: ''
 ### Acceptance Criteria (executable specification)
 :zap: Write the Acceptance Criteria ... The Scenarios names are pointing in the right direction, but are nowhere near ready for implementation.
 ```gherkin
-Feature: :zap: todo ...
+Feature: todo ...
 
   As a _role_ I can _capability_, so that _receive benefit_.
 
