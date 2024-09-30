@@ -4,7 +4,7 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 :url-project: https://github.com/sommerfeld-io/{project-name}
 :github-actions-url: {url-project}/actions/workflows
 
-Special repository which main purpose is to provide Reusable Workflows to reference from other repositories.
+Special repository which main purpose is to provide issue templates for other repositories.
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
