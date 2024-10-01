@@ -8,22 +8,25 @@ assignees: ''
 
 :zap: As a _role_ I can _capability_, so that _receive benefit_.
 
-:zap: _What is the feature (and its scenarios) we want to introduce? Does the user story description reflect that?_
+### Acceptance Criteria (executable specification)
+:zap: Write the Acceptance Criteria ... The Scenarios names are pointing in the right direction, but are nowhere near ready for implementation.
+```gherkin
+Feature: todo ...
 
-### Acceptance Criteria
-- [ ] Scenario: Name
-    - Given ...
-    - When ...
-    - Then ...
-- [ ] Scenario: Name
-    - Given ...
-    - When ...
-    - Then ...
+  As a _role_ I can _capability_, so that _receive benefit_.
 
-#### :zap: Memo (remove when story is ready)
-- :zap: Translate the user story into executable specifications
-    - :zap: Create a minimum of one acceptance test for each acceptance criteria
-    - :zap: Use Given When Then (and probably Gherkin/Cucumber)
+  Background:
+    Given todo ...
+
+  Scenario: todo ...
+    Given todo ...
+    When todo ...
+    Then todo ...
+```
+
+### Acceptance Criteria (additional / manual)
+:zap: Memo (remove when story is ready)
+- [ ] :zap: Translate the user story into executable specifications
     - :zap: If you cannot think about phrasing these tests, check if you really understand the problem
     - :zap: Use ubiquitous language based on the language of the problem domain
     - :zap: When a dedicated file from the code repository is used to define the acceptance criteria, do not repeat here. Just link to the proper definitions
