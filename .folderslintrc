@@ -1,0 +1,12 @@
+{
+	"rules": [
+		".devcontainer/**",
+
+		".github/ISSUE_TEMPLATE",
+		".github/workflows",
+
+		".vscode",
+
+        "profile"
+	]
+}

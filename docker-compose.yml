@@ -1,0 +1,45 @@
+---
+volumes:
+
+  project-root-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: .
+      o: bind
+
+services:
+
+  lint-yaml:
+    container_name: ${COMPOSE_PROJECT_NAME}-lint-yaml
+    image: cytopia/yamllint:latest
+    volumes: &volumes
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - project-root-volume:/workspaces/configs-homelab
+    working_dir: &default-workdir /workspaces/configs-homelab
+    command: .
+    tty: &tty true
+
+  lint-workflows:
+    container_name: ${COMPOSE_PROJECT_NAME}-lint-workflows
+    image: rhysd/actionlint:latest
+    volumes: *volumes
+    working_dir: *default-workdir
+    command: -color
+    tty: *tty
+
+  lint-filenames:
+    container_name: ${COMPOSE_PROJECT_NAME}-lint-filenames
+    image: lslintorg/ls-lint:1.11.2
+    volumes: *volumes
+    working_dir: *default-workdir
+    tty: *tty
+
+  lint-folders:
+    container_name: ${COMPOSE_PROJECT_NAME}-lint-folders
+    image: sommerfeldio/folderslint:latest
+    volumes: *volumes
+    working_dir: *default-workdir
+    command: .
+    tty: *tty
