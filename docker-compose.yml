@@ -16,8 +16,8 @@ services:
     volumes: &volumes
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-      - project-root-volume:/workspaces/configs-homelab
-    working_dir: &default-workdir /workspaces/configs-homelab
+      - project-root-volume:/workspaces/.github
+    working_dir: &default-workdir /workspaces/.github
     command: .
     tty: &tty true
 
