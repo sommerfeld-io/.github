@@ -1,12 +1,18 @@
 ---
-name: User Story
+name: Story
 about: Describe a new feature (only one single feature at best)
 title: ''
-labels: user-story, needs-triage
+labels: story, needs-triage
 assignees: ''
 ---
 
+:bulb: **Info:** Use a user story when you want to describe a feature or function from the perspective of the end user’s needs and behaviors, typically to capture who they are, what they want, and why they need it. It's most useful when the user's identity and context directly influence the solution.
+
 :zap: As a _role_ I can _capability_, so that _receive benefit_.
+
+_bulb: **Info:** Use a job story when the focus is on the specific situation, allowing for more granular insights into what triggers the need. Job stories are ideal for identifying opportunities for improvement or innovation without centering on a particular user persona.
+
+:zap: When _some situation_, I want to _do something_, so I can _achieve this outcome_.
 
 ### Acceptance Criteria (executable specification)
 :zap: Write the Acceptance Criteria ... The Scenarios names are pointing in the right direction, but are nowhere near ready for implementation.
