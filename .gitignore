@@ -1,0 +1,13 @@
+.idea
+target
+.target
+.vagrant
+*.log
+*.lock
+yamllint-*
+
+node_modules
+/node_modules/
+/public
+/target
+/dist
