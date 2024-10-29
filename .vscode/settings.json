@@ -1,3 +1,7 @@
 {
-    "asciidoc.antora.enableAntoraSupport": true
+    "asciidoc.antora.enableAntoraSupport": true,
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    }
 }
