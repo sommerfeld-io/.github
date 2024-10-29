@@ -1,7 +1,8 @@
 {
-    "asciidoc.antora.enableAntoraSupport": true,
     "[markdown]": {
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true
-    }
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
 }
