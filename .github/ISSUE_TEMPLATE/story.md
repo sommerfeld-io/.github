@@ -10,7 +10,7 @@ assignees: ''
 
 :zap: As a _role_ I can _capability_, so that _receive benefit_.
 
-_bulb: **Info:** Use a job story when the focus is on the specific situation, allowing for more granular insights into what triggers the need. Job stories are ideal for identifying opportunities for improvement or innovation without centering on a particular user persona.
+:bulb: **Info:** Use a job story when the focus is on the specific situation, allowing for more granular insights into what triggers the need. Job stories are ideal for identifying opportunities for improvement or innovation without centering on a particular user persona.
 
 :zap: When _some situation_, I want to _do something_, so I can _achieve this outcome_.
 
