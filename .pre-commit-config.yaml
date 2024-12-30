@@ -27,6 +27,11 @@ repos:
       - id: check-json
       - id: check-merge-conflict
       - id: detect-private-key
+  - repo: https://github.com/scop/pre-commit-shfmt
+    rev: v3.8.0-1
+    hooks:
+      - id: shfmt-src
+        args: [-w, -i, "2"]
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.32.0
     hooks:
