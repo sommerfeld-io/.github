@@ -2,8 +2,10 @@
 	"rules": [
 		".devcontainer/**",
 
+		".github",
 		".github/ISSUE_TEMPLATE",
 		".github/workflows",
+		".github/workflows/assets",
 
 		".vscode",
 
