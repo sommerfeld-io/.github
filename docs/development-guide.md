@@ -206,4 +206,4 @@ Architecture decisions are labeled as `ADR` and are tracked as GitHub issues. Ea
 
 ### Risks and Technical Debts
 
-All issues labeled as `risk` (= some sort of risk or a technical debt) or `security` (= disclosed security issues - e.g. CVEs) [are tracked as GitHub issue](https://github.com/orgs/sommerfeld-io/projects/1/views/21) and carry the respective label. For more information on how to report a vulnerability, please refer to the [Security Policy](security.md).
+All issues labeled as `risk` (= some sort of risk or a technical debt) or `security` (= disclosed security issues - e.g. CVEs) [are tracked as GitHub issue](https://github.com/orgs/sommerfeld-io/projects/1/views/21) and carry the respective label. For more information on how to report a vulnerability, please refer to the [Security Policy](https://github.com/sommerfeld-io/.github/blob/main/docs/security.md).
