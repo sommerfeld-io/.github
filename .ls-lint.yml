@@ -45,6 +45,7 @@ ignore:
   - target
 
   # linter definitions etc.
+  - .editorconfig
   - .hadolint.yml
   - .lychee.toml
   - .ls-lint.yml
