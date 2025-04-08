@@ -1,5 +1,5 @@
 ---
-name: Build + Deployment Pipeline
+name: "Pipeline: Release"
 
 on:
   push:
