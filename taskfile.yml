@@ -1,0 +1,16 @@
+---
+version: '3.42.1'
+
+vars:
+  INSPEC_COMPOSE_SERVICE: chef/inspec:5.22.76
+  INSPEC_PROFILES: ['ansible-baseline']
+
+tasks:
+
+  lint:
+    desc: 'Run all project linters outside of Dockerfile linters'
+    cmds:
+      - for:
+          matrix:
+            LINTER: ['yaml', 'workflows', 'filenames', 'folders', 'markdown-links']
+        cmd: docker compose up lint-{{.ITEM.LINTER}} --exit-code-from lint-{{.ITEM.LINTER}}

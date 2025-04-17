@@ -1,4 +1,10 @@
 {
+    "yaml.schemas": {
+        "https://taskfile.dev/schema.json": [
+          "**/Taskfile.yml",
+          "**/taskfile.yml"
+        ]
+    },
     "[markdown]": {
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true
