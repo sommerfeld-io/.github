@@ -16,4 +16,4 @@ These are the only official sources for our source code, repositories, packages,
 
 ## Task Management
 
-We use GitHub Issues and Pull Requests to track all tasks, todos, and code changes across our repositories. Task management is centralized in [a GitHub Project](https://github.com/orgs/sommerfeld-io/projects/1/views/1), which provides a clear overview of ongoing work, priorities, and progress. All contributions and changes should be linked to a corresponding issue or PR in the project board to ensure transparency and collaboration.
+We use GitHub Issues and Pull Requests to track all tasks, todos, and code changes across our repositories. Task management is centralized in [a GitHub Project](https://github.com/orgs/sommerfeld-io/projects/1), which provides a clear overview of ongoing work, priorities, and progress. All contributions and changes should be linked to a corresponding issue or PR in the project board to ensure transparency and collaboration. See ["Task Management" in our Development Guide](https://github.com/sommerfeld-io/.github/blob/main/docs/development-guide.md#task-management) for detailed information.
