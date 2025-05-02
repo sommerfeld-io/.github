@@ -190,11 +190,11 @@ To ensure that our development process is organized and efficient, we use a task
 
 All task and todo tracking will be done through [a GitHub project](https://github.com/orgs/sommerfeld-io/projects/1/).
 
-### User Stories
+### User Stories and Job Stories
 
-We want requirements to define small focused needs rather than vast vague projects. We use user stories to describe our requirements. We try to finish a user story within a couple of days at most. We need to keep in mind, that we integrate our changes daily, so we must design our user stories accordingly.
+We want requirements to define small, focused needs rather than vast, vague projects. Depending on the nature of the task, we use user stories or job stories to describe our requirements. We aim to complete each story within a couple of days at most, keeping in mind that we integrate changes daily. So our stories must be designed accordingly.
 
-If we can't think of user need in terms of a story, we don't understand what our software is meant to achieve yet. If we can't think of an example, that would demonstrate that the need is fulfilled, we don't really understand the problem (domain) yet.
+If we can't express the need in terms of a story, we likely don't yet understand what our software is meant to achieve. If we can't think of an example that would demonstrate the need is fulfilled, we probably don't really understand the problem (domain) yet.
 
 ### Architecture Decisions
 
