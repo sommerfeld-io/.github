@@ -188,7 +188,7 @@ To ensure that our development process is organized and efficient, we use a task
 
 ### Task and Todo Tracking
 
-All task and todo tracking will be done through a GitHub project.
+All task and todo tracking will be done through [a GitHub project](https://github.com/orgs/sommerfeld-io/projects/1/).
 
 ### User Stories
 
