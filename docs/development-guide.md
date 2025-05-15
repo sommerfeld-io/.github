@@ -146,10 +146,6 @@ This means that all deployments to any test or production environment, whether i
 
 We deploy our changes into production based on the commit messages. We automate the deployment process as much as possible, so (according to the commit message) we create tags based on the commit message and trigger the deployment pipeline. Commit messages with the type `fix` or `feat` will trigger a new bugfix or minor release, respectively. A commit message with the type `BREAKING CHANGE` will trigger a major release. Releases are always based on the `main` branch.
 
-### Docker Tag Strategy
-
-The Docker tag strategy follows Semantic Versioning for our releases.
-
 ### Artifacts are immutable
 
 We are validating the delivered artifact with the pipeline. It is built once and deployed to all environments. A common anti-pattern is building an artifact for each environment. Each build is a possibility to introduce unintended changes. By promoting a single artifact through the stages we ensure that the deployed artifact is exactly the one that was tested.
