@@ -156,7 +156,7 @@ Our development ecosystem consists of a set of tools, technologies, and practice
 
 ### Packaging and Distribution
 
-The application will be packaged and published solely as a Docker image. No other package format will be supported.
+The application will be packaged and published primarily as a Docker image, which is the default and recommended release format. While Docker images are the standard, alternative formats such as standalone binaries (e.g., for Go applications) may be provided if needed.
 
 ### Development Environment
 
@@ -168,7 +168,7 @@ Development efforts are supported by GitHub Copilot, with the potential for heav
 
 ### Source Code Hosting
 
-All related projects are hosted on GitHub.
+All projects are hosted on GitHub.
 
 ### Pipelines and Workflows
 
