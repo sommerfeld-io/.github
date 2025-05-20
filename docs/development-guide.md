@@ -46,7 +46,7 @@ Basically we follow most recommendations from [trunkbaseddevelopment.com](https:
 
 We integrate code changes from all developers at least once per day. This frequent integration ensures that our software is thoroughly tested and checked with everyone's changes on a daily basis.
 
-We work with short lived (feature) branches. But we won't hide work on separate branches for longer than a working day before integrating them together.
+We work with short lived (feature) branches (if needed). But we won't hide work on separate branches for longer than a working day before integrating them together.
 
 We don't merge the `main` branch into our feature branches to make them live longer! This is not a way to integrate everyone's changes into a single source of truth and prevents us from determining the releasability of our software.
 
@@ -156,7 +156,7 @@ Our development ecosystem consists of a set of tools, technologies, and practice
 
 ### Packaging and Distribution
 
-The application will be packaged and published solely as a Docker image. No other package format will be supported.
+The application will be packaged and published primarily as a Docker image, which is the default and recommended release format. While Docker images are the standard, alternative formats such as standalone binaries (e.g., for Go applications) may be provided if needed.
 
 ### Development Environment
 
@@ -168,7 +168,7 @@ Development efforts are supported by GitHub Copilot, with the potential for heav
 
 ### Source Code Hosting
 
-All related projects are hosted on GitHub.
+All projects are hosted on GitHub.
 
 ### Pipelines and Workflows
 
