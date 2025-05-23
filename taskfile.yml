@@ -10,6 +10,5 @@ tasks:
   lint:
     desc: 'Run all project linters outside of Dockerfile linters'
     cmds:
-      - chmod u+rw,g+rw,o+r ./*.md
       - for: ['yaml', 'workflows', 'filenames', 'folders', 'markdown-links']
         cmd: docker compose up lint-{{ .ITEM }} --exit-code-from lint-{{ .ITEM }}

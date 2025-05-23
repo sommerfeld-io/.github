@@ -1,4 +1,11 @@
 ---
+x-volumes: &volumes
+  - /etc/timezone:/etc/timezone:ro
+  - /etc/localtime:/etc/localtime:ro
+  - project-root-volume:/workspaces/.github
+x-workdir: &default-workdir /workspaces/.github
+x-tty: &tty true
+
 volumes:
 
   project-root-volume:
@@ -13,11 +20,8 @@ services:
   lint-yaml:
     container_name: ${COMPOSE_PROJECT_NAME}-lint-yaml
     image: cytopia/yamllint:latest
-    volumes: &volumes
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
-      - project-root-volume:/workspaces/.github
-    working_dir: &default-workdir /workspaces/.github
+    volumes: *volumes
+    working_dir: *default-workdir
     command: .
     tty: &tty true
 
