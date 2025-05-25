@@ -12,3 +12,25 @@ tasks:
     cmds:
       - for: ['yaml', 'workflows', 'filenames', 'folders', 'markdown-links']
         cmd: docker compose up lint-{{ .ITEM }} --exit-code-from lint-{{ .ITEM }}
+
+  # ===============================================================================================
+
+  docs:generate:internal:copy:
+    desc: 'Do the actual work of copying files'
+    internal: true
+    silent: true
+    cmds:
+      - cp {{ .SRC }} {{ .DEST }}
+      - echo >> {{ .DEST }}
+      - echo "<!-- !    File is auto-generated        -->" >> {{ .DEST }}
+      - echo "<!-- !    EDITS WILL BE ERASED !!!!!    -->" >> {{ .DEST }}
+      - chmod u+rw,g+rw,o+r {{ .DEST }}
+    generates:
+      - "{{ .DEST }}"
+
+  docs:generate:
+    desc: 'Generate Markdown files for documentation'
+    cmds:
+      - echo "Collecting documentation from other Markdown files ..."
+      - task: docs:generate:internal:copy
+        vars: { SRC: docs/code-guideline-pipelines.md, DEST: .github/instructions/code-guideline-pipelines.md }
