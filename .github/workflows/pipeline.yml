@@ -1,5 +1,5 @@
 ---
-name: "Pipeline: Release"
+name: "Pipeline: Commit + Test"
 
 on:
   push:
