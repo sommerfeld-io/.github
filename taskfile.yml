@@ -4,8 +4,38 @@ version: '3.42.1'
 vars:
   INSPEC_COMPOSE_SERVICE: chef/inspec:5.22.76
   INSPEC_PROFILES: ['ansible-baseline']
+  REPO: https://raw.githubusercontent.com/sommerfeld-io/.github
 
 tasks:
+
+  internal:download:
+    desc: 'Download file from central repo'
+    internal: true
+    silent: true
+    cmds:
+      - curl -fsSL -o {{ .DEST }} "{{ .URL }}"
+      - chmod u+rw,g+rw,o+r {{ .DEST }}
+      # - echo >> {{ .DEST }}
+      # - echo "<!-- ! File is auto-generated -->" >> {{ .DEST }}
+      # - echo "<!-- ! EDITS WILL BE ERASED !!!!! -->" >> {{ .DEST }}
+      # - echo "<!-- ! see {{.URL }} -->" >> {{ .DEST }}
+    generates:
+      - "{{ .DEST }}"
+
+  # internal:copy:
+  #   desc: 'Do the actual work of copying files'
+  #   internal: true
+  #   silent: true
+  #   cmds:
+  #     - cp {{ .SRC }} {{ .DEST }}
+  #     - echo >> {{ .DEST }}
+  #     - echo "<!-- ! File is auto-generated -->" >> {{ .DEST }}
+  #     - echo "<!-- ! EDITS WILL BE ERASED !!!!! -->" >> {{ .DEST }}
+  #     - chmod u+rw,g+rw,o+r {{ .DEST }}
+  #   generates:
+  #     - "{{ .DEST }}"
+
+  # ===============================================================================================
 
   lint:
     desc: 'Run all project linters outside of Dockerfile linters'
@@ -15,22 +45,17 @@ tasks:
 
   # ===============================================================================================
 
-  docs:generate:internal:copy:
-    desc: 'Do the actual work of copying files'
-    internal: true
-    silent: true
+  sync:assets-from-github:
+    desc: 'Sync assets from the central sommerfeldio/.github repository'
     cmds:
-      - cp {{ .SRC }} {{ .DEST }}
-      - echo >> {{ .DEST }}
-      - echo "<!-- !    File is auto-generated        -->" >> {{ .DEST }}
-      - echo "<!-- !    EDITS WILL BE ERASED !!!!!    -->" >> {{ .DEST }}
-      - chmod u+rw,g+rw,o+r {{ .DEST }}
-    generates:
-      - "{{ .DEST }}"
-
-  docs:generate:
-    desc: 'Generate Markdown files for documentation'
-    cmds:
-      - echo "Collecting documentation from other Markdown files ..."
-      - task: docs:generate:internal:copy
-        vars: { SRC: docs/code-guideline-pipelines.md, DEST: .github/instructions/code-guideline-pipelines.md }
+      - echo "Syncing assets from the central sommerfeldio/.github repository..."
+      # - task: internal:copy
+      #   vars: { SRC: "docs/code-guideline-pipelines.md", DEST: ".github/instructions/code-guideline-pipelines.md" }
+      - task: internal:download
+        vars: { DEST: ".github/instructions/code-guideline-pipelines.md", URL: "{{ .REPO }}/refs/heads/main/docs/code-guideline-pipelines.md" }
+      - task: internal:download
+        vars: { DEST: ".github/instructions/pull-requests.yml", URL: "{{ .REPO }}/refs/heads/main/assets/github/instructions/pull-requests.yml" }
+      - task: internal:download
+        vars: { DEST: ".github/workflows/housekeeping-issues.yml", URL: "{{ .REPO }}/refs/heads/main/assets/github/workflows/housekeeping-issues.yml" }
+      - task: internal:download
+        vars: { DEST: ".github/workflows/housekeeping-labels.yml", URL: "{{ .REPO }}/refs/heads/main/assets/github/workflows/housekeeping-labels.yml" }

@@ -33,6 +33,3 @@ This approach keeps workflows clean, enables the reuse and local execution of ta
     username: ${{ secrets.DOCKERHUB_USER }}
     password: ${{ secrets.DOCKERHUB_TOKEN }}
 ```
-
-<!-- !    File is auto-generated        -->
-<!-- !    EDITS WILL BE ERASED !!!!!    -->

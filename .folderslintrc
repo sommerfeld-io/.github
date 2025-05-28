@@ -3,12 +3,16 @@
 		".devcontainer/**",
 
 		".github",
-		".github/ISSUE_TEMPLATE",
+        ".github/instructions",
+        ".github/ISSUE_TEMPLATE",
 		".github/workflows",
 		".github/workflows/assets",
 
 		".vscode",
 
+        "assets/**",
+        "branding",
+        "branding/logos",
         "docs",
 		"profile"
 	]
