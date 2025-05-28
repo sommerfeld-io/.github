@@ -15,10 +15,6 @@ tasks:
     cmds:
       - curl -fsSL -o {{ .DEST }} "{{ .URL }}"
       - chmod u+rw,g+rw,o+r {{ .DEST }}
-      # - echo >> {{ .DEST }}
-      # - echo "<!-- ! File is auto-generated -->" >> {{ .DEST }}
-      # - echo "<!-- ! EDITS WILL BE ERASED !!!!! -->" >> {{ .DEST }}
-      # - echo "<!-- ! see {{.URL }} -->" >> {{ .DEST }}
     generates:
       - "{{ .DEST }}"
 
@@ -28,9 +24,6 @@ tasks:
   #   silent: true
   #   cmds:
   #     - cp {{ .SRC }} {{ .DEST }}
-  #     - echo >> {{ .DEST }}
-  #     - echo "<!-- ! File is auto-generated -->" >> {{ .DEST }}
-  #     - echo "<!-- ! EDITS WILL BE ERASED !!!!! -->" >> {{ .DEST }}
   #     - chmod u+rw,g+rw,o+r {{ .DEST }}
   #   generates:
   #     - "{{ .DEST }}"
