@@ -8,6 +8,13 @@ vars:
 
 tasks:
 
+  cleanup:
+    desc: 'Cleanup the environment'
+    cmds:
+      - find . -type f -exec chmod +r {} +
+
+  # ===============================================================================================
+
   internal:download:
     desc: 'Download file from central repo'
     internal: true
