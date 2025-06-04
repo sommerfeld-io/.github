@@ -1,6 +1,9 @@
 ---
 version: '3.42.1'
 
+includes:
+  common: assets/task/common.yml
+
 vars:
   INSPEC_COMPOSE_SERVICE: chef/inspec:5.22.76
   INSPEC_PROFILES: ['ansible-baseline']
@@ -12,28 +15,6 @@ tasks:
     desc: 'Cleanup the environment'
     cmds:
       - find . -type f -exec chmod +r {} +
-
-  # ===============================================================================================
-
-  internal:download:
-    desc: 'Download file from central repo'
-    internal: true
-    silent: true
-    cmds:
-      - curl -fsSL -o "{{ .DEST }}" "{{ .URL }}"
-      - chmod u+rw,g+rw,o+r "{{ .DEST }}"
-    generates:
-      - "{{ .DEST }}"
-
-  # internal:copy:
-  #   desc: 'Do the actual work of copying files'
-  #   internal: true
-  #   silent: true
-  #   cmds:
-  #     - cp "{{ .SRC }}" "{{ .DEST }}"
-  #     - chmod u+rw,g+rw,o+r "{{ .DEST }}"
-  #   generates:
-  #     - "{{ .DEST }}"
 
   # ===============================================================================================
 
@@ -49,13 +30,11 @@ tasks:
     desc: 'Sync assets from the central sommerfeldio/.github repository'
     cmds:
       - echo "Syncing assets from the central sommerfeldio/.github repository..."
-      # - task: internal:copy
-      #   vars: { SRC: "docs/code-guideline-pipelines.md", DEST: ".github/instructions/code-guideline-pipelines.md" }
-      - task: internal:download
+      - task: common:download
         vars: { DEST: ".github/instructions/code-guideline-pipelines.md", URL: "{{ .REPO }}/refs/heads/main/docs/code-guideline-pipelines.md" }
-      - task: internal:download
+      - task: common:download
         vars: { DEST: ".github/instructions/pull-requests.yml", URL: "{{ .REPO }}/refs/heads/main/assets/github/instructions/pull-requests.yml" }
-      - task: internal:download
+      - task: common:download
         vars: { DEST: ".github/workflows/housekeeping-issues.yml", URL: "{{ .REPO }}/refs/heads/main/assets/github/workflows/housekeeping-issues.yml" }
-      - task: internal:download
+      - task: common:download
         vars: { DEST: ".github/workflows/housekeeping-labels.yml", URL: "{{ .REPO }}/refs/heads/main/assets/github/workflows/housekeeping-labels.yml" }
