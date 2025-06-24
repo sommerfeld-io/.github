@@ -11,9 +11,8 @@
 		".vscode",
 
         "assets/**",
-        "branding",
-        "branding/logos",
         "docs",
-		"profile"
+		"profile",
+		"profile/logos"
 	]
 }
