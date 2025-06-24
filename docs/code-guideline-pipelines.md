@@ -1,4 +1,4 @@
-# Code Guidelines: Pipelines
+# Code Guideline: Pipelines
 
 This guide defines conventions and best practices for writing GitHub Actions workflows to ensure clarity, maintainability, and consistency across repositories.
 
