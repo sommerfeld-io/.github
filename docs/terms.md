@@ -15,6 +15,7 @@ This website does not set any cookies and does not track you. We do not collect 
 All repositories under the [sommerfeld.io GitHub organization](https://github.com/sommerfeld-io) and their respective documentation pages are maintained and owned by:
 
 Sebastian Sommerfeld - <sebastian@sommerfeld.io>
+
 Düsseldorf, Germany
 
 Please note that each repository is governed by its own license as specified in its respective LICENSE file. Use, modification, and distribution are subject to the terms of the applicable license.
