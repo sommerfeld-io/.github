@@ -9,3 +9,12 @@ To display diagrams on our documentation website, we rely on [Kroki](https://kro
 To enrich our documentation with video content, we embed [YouTube](https://www.youtube.com) videos. This means that when viewing a page containing a video, your browser may connect to YouTube servers and transmit data. The video content itself is managed externally on YouTube, and we have no control over YouTube’s terms, policies, or data collection practices.
 
 This website does not set any cookies and does not track you. We do not collect any personal data from you. We do not use any analytics services. However, we cannot guarantee that GitHub, Google, or Kroki do not collect any personal data from you. Please (as mentioned) refer to their respective terms and policies for more information.
+
+## Legal Notice
+
+All repositories under the [sommerfeld.io GitHub organization](https://github.com/sommerfeld-io) and their respective documentation pages are maintained and owned by:
+
+Sebastian Sommerfeld - <sebastian@sommerfeld.io>
+Düsseldorf, Germany
+
+Please note that each repository is governed by its own license as specified in its respective LICENSE file. Use, modification, and distribution are subject to the terms of the applicable license.
