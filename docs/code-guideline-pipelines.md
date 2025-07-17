@@ -5,7 +5,7 @@ This guide defines conventions and best practices for writing GitHub Actions wor
 ## File Structure and Naming
 
 * Workflows must reside in `.github/workflows/`.
-* File names should describe the pipeline purpose, e.g.:
+* File names should describe the pipeline purpose
 
 ## Workflow Readability and Modularity
 
