@@ -53,6 +53,21 @@ jobs:
         run: docker compose up lint-${{ matrix.linter }} --exit-code-from lint-${{ matrix.linter }}
         shell: bash
 
+  files-should-exist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Mandatory files should exist
+        uses: chrisreddington/validate-file-exists@v0.0.7
+        with:
+          required-files: >
+            .editorconfig,
+            .gitignore,
+            taskfile.yml,
+            .github/dependabot.yml,
+
+
   # ----- Release stage ---------------------------------------------------------------------------
 
   release-code:
@@ -60,6 +75,7 @@ jobs:
     needs: [
       'lint',
       'shellcheck',
+      'files-should-exist',
     ]
     if: ${{ (github.actor != 'dependabot[bot]') && (github.ref == 'refs/heads/main') }}
     permissions:
