@@ -3,7 +3,6 @@
 		".devcontainer/**",
 
 		".github",
-        ".github/instructions",
         ".github/ISSUE_TEMPLATE",
 		".github/workflows",
 		".github/workflows/assets",
