@@ -25,6 +25,11 @@
     "editor.formatOnPaste": true
   },
   "cSpell.words": [
-    "mkdocs"
+    "mkdocs",
+    "controlplane",
+    "loadbalancing",
+    "talosconfig",
+    "kubectl",
+    "talosctl"
   ]
 }
