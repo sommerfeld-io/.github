@@ -50,7 +50,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Run lint-${{ matrix.linter }} from docker-compose.yml
-        run: docker compose up lint-${{ matrix.linter }} --exit-code-from lint-${{ matrix.linter }}
+        env:
+          LINTER: ${{ matrix.linter }}
+        run: docker compose up "lint-$LINTER" --exit-code-from "lint-$LINTER"
         shell: bash
 
   files-should-exist:
@@ -119,7 +121,9 @@ jobs:
           echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
         shell: bash
       - name: Get the latest git tag (freshly created by semantic-release)
-        run: echo "freshly created tag ${{ steps.get-version.outputs.VERSION }}"
+        env:
+          VERSION: ${{ steps.get-version.outputs.VERSION }}
+        run: echo "freshly created tag $VERSION"
         shell: bash
       - name: Commit and push
         uses: EndBug/add-and-commit@v9.1.4
