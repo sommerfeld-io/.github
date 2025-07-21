@@ -68,7 +68,8 @@ jobs:
             .gitignore,
             taskfile.yml,
             .github/dependabot.yml,
-            .github/copilot-instructions.md
+            .github/copilot-instructions.md,
+            .vscode/settings.json
 
 
   # ----- Release stage ---------------------------------------------------------------------------
