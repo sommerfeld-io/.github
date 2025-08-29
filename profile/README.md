@@ -2,7 +2,7 @@
 
 If you are interested in our principles and values and in the way we work, feel free to take a look at our [Development Guide](https://github.com/sommerfeld-io/.github/blob/main/docs/development-guide.md) and our [Code of Conduct](https://github.com/sommerfeld-io/.github/blob/main/CODE_OF_CONDUCT.md).
 
-You can contact us at <sebastian@sommerfeld.io> for anything you'd like to discuss.
+You can contact us at <sebastian@sommerfeld.io> for anything you'd like to discuss. You can also open a discussion for the respective repository.
 
 For security topics, please refer to our [Security Policy](https://github.com/sommerfeld-io/.github/blob/main/SECURITY.md).
 
