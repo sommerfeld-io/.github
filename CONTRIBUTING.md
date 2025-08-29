@@ -2,7 +2,7 @@
 
 ## Code
 
-We're thrilled that you'd like to contribute to this project. You can do this by submitting a pull request.
+We're thrilled that you'd like to contribute. You can do this by submitting a pull request.
 
 - Take a look at our [Development Guide](https://github.com/sommerfeld-io/.github/blob/main/docs/development-guide.md) to get an idea of how we work
 - Fork and clone the repository
@@ -16,7 +16,7 @@ We're thrilled that you'd like to contribute to this project. You can do this by
 Here are a few things you can do that will increase the likelihood of your pull request being accepted:
 
 - Write tests
-- Make sure the documentation (in `docs` folder) and any other relevant documentation (e.g. inline docs) are kept up-to-date
+- Make sure the documentation (`README.md`, etc.) and any other relevant documentation (e.g. inline docs) are kept up-to-date
 - We follow SemVer v2.0.0 so randomly breaking public APIs is not an option
 - Keep your change as focused as possible - If there are multiple changes you would like to make that are not dependent upon each other, consider submitting them as separate pull requests
 - Write [good commit messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
