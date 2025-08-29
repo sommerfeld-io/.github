@@ -1,4 +1,4 @@
-# Contribute to this Project
+# How to Contribute
 
 ## Code
 
