@@ -6,6 +6,12 @@ You can contact us at <sebastian@sommerfeld.io> for anything you'd like to discu
 
 For security topics, please refer to our [Security Policy](https://github.com/sommerfeld-io/.github/blob/main/SECURITY.md).
 
+## Maintainer
+
+This organization is maintained by [Sebastian Sommerfeld](https://github.com/sebastian-sommerfeld-io).
+
+If you like to contribute to any of our projects, please take a look at our [Contribution Guide](https://github.com/sommerfeld-io/.github/blob/main/CONTRIBUTING.md)
+
 ## Official Distribution Channels
 
 The sommerfeld.io organization and its associated projects are officially hosted on:
