@@ -2,8 +2,8 @@
 
 Our software artifacts are distributed primarily as Docker images and follow a consistent tagging scheme. These tags also apply to other artifact formats where applicable.
 
-- Release Candidate `rc`
-    - Tagged as `rc` in Docker and other distribution formats.
+- Latest but unreleased feature set `edge` (release candidate `rc` in older repos)
+    - Tagged as `edge` (or `rc` in older repos) in Docker and other distribution formats.
     - Always built from the `main` branch.
     - Represents a releasable state of the software.
     - Not considered an official release, but may be used for staging or acceptance environments.

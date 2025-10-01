@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Add to project sommerfeld-io (issues and PRs)
         uses: actions/add-to-project@main
         with:
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign to user
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const issue_number = context.issue.number;
@@ -56,7 +56,7 @@ jobs:
     if: "${{ github.event.issue && !contains(github.event.issue.labels.*.name, 'story') }}"
     steps:
       - name: Set label
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             github.rest.issues.addLabels({

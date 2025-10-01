@@ -27,9 +27,9 @@ jobs:
       CONTAINER_NAME: system_under_test
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: hadolint
-        uses: hadolint/hadolint-action@v3.1.0
+        uses: hadolint/hadolint-action@v3.3.0
         with:
           dockerfile: ${{ env.CONTEXT }}/${{ env.DOCKERFILE }}
       - name: Set up Docker Buildx
