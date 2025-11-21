@@ -6,7 +6,7 @@ You can contact us at <sebastian@sommerfeld.io> for anything you'd like to discu
 
 For security topics, please refer to our [Security Policy](https://github.com/sommerfeld-io/.github/blob/main/SECURITY.md).
 
-<!-- - Our [Technology Radar](...) -->
+- Our [Technology Radar](https://sommerfeld-io.github.io/tech-radar)
 
 ## Maintainer
 
