@@ -12,7 +12,7 @@ For security topics, please refer to our [Security Policy](https://github.com/so
 
 This organization is maintained by [Sebastian Sommerfeld](https://github.com/sebastian-sommerfeld-io).
 
-If you like to contribute to any of our projects, please take a look at our [Contribution Guide](https://github.com/sommerfeld-io/.github/blob/main/CONTRIBUTING.md)
+If you like to contribute to any of our projects, please take a look at our [Contribution Guide](https://github.com/sommerfeld-io/.github/blob/main/CONTRIBUTING.md).
 
 ## Official Distribution Channels
 
