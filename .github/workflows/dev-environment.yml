@@ -23,9 +23,6 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
-    env:
-      CHEF_LICENSE: accept-no-persist
-      CONTAINER_NAME: system_under_test
     steps:
       - name: Check out code
         uses: actions/checkout@v6
