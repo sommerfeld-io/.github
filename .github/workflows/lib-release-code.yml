@@ -8,6 +8,13 @@ on:
         required: true
 
 jobs:
+  ## The workflow needs:
+  ##
+  ## - `.releaserc.js` file in the root of the repository
+  ## - `.github/workflows/assets/release-notes-header.hbs`
+  ## - `.github/workflows/assets/release.sh`
+  ##
+  ## Caller-repositories need to provide those files.
   release-code:
     runs-on: ubuntu-latest
     if: ${{ (github.actor != 'dependabot[bot]') && (github.ref == 'refs/heads/main') }}
@@ -37,14 +44,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
         run: npx semantic-release
         shell: bash
-      - name: Get the latest git tag (freshly created by semantic-release)
+      - name: Get the latest git tag (created by semantic-release)
         id: get-version
         run: |
           # Get the latest tag and strip the 'v' prefix if present
           VERSION="$(git describe --tags --abbrev=0 | sed 's/^v//')"
           echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
         shell: bash
-      - name: Get the latest git tag (freshly created by semantic-release)
+      - name: Get the latest git tag (created by semantic-release)
         env:
           VERSION: ${{ steps.get-version.outputs.VERSION }}
         run: echo "freshly created tag $VERSION"
