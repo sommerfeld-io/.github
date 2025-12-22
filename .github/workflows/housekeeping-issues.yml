@@ -9,6 +9,7 @@ on:
     types:
       - opened
       - assigned
+  workflow_call:
 
 jobs:
   add-issue-to-project:
