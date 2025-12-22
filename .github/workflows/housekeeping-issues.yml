@@ -10,6 +10,9 @@ on:
       - opened
       - assigned
   workflow_call:
+    secrets:
+      GH_TOKEN_REPO_AND_PROJECT:
+        required: true
 
 jobs:
   add-issue-to-project:
