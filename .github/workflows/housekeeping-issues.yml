@@ -10,16 +10,15 @@ on:
       - opened
       - assigned
 
-permissions:
-  contents: read
-  issues: write
-  pull-requests: write
-  repository-projects: write
-
 jobs:
   add-issue-to-project:
     name: Add to project
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      repository-projects: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -33,6 +32,10 @@ jobs:
     name: Assign task or PR to user
     if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     steps:
       - name: Assign to user
         uses: actions/github-script@v8
@@ -53,6 +56,10 @@ jobs:
   set-issue-labels:
     name: Set label for issues (if not story)
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     if: ${{ github.event.issue && !contains(github.event.issue.labels.*.name, 'story') }}
     steps:
       - name: Set label
