@@ -14,11 +14,14 @@ tasks:
   cleanup:
     desc: 'Cleanup the environment'
     cmds:
+      - docker compose down --remove-orphans
+      - docker container prune -f
+      - docker volume prune -f
       - sudo rm -rf .devcontainer/ops
       - find . -type f -exec chmod +r {} +
       - find . -type f -exec chmod ugo+r {} +
       - find . -type d -exec chmod 755 {} +
-      - find . -name "*.sh" -type f -exec chmod +x {} +ja hol mal
+      - find . -name "*.sh" -type f -exec chmod +x {} +
 
   # ===============================================================================================
 
