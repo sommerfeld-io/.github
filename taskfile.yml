@@ -17,9 +17,6 @@ tasks:
       - docker compose down --remove-orphans
       - docker container prune -f
       - docker volume prune -f
-      - sudo rm -rf .devcontainer/ops
-      - docker container prune -f
-      - docker volume prune -f
       - rm -rf .cache
       - sudo rm -rf .ansible
       - sudo rm -rf .devcontainer/ops
