@@ -14,6 +14,9 @@ tasks:
   cleanup:
     desc: 'Cleanup the environment'
     cmds:
+      - docker compose down --remove-orphans
+      - docker container prune -f
+      - docker volume prune -f
       - sudo rm -rf .devcontainer/ops
       - docker container prune -f
       - docker volume prune -f
