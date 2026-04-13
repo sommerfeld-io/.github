@@ -42,7 +42,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Assign to user
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const issue_number = context.issue.number;
@@ -67,7 +67,7 @@ jobs:
     if: ${{ github.event.issue && !contains(github.event.issue.labels.*.name, 'story') }}
     steps:
       - name: Set label
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.addLabels({
