@@ -1,62 +1,61 @@
 # GitHub Copilot Instructions
 
-## Code Guideline: Pipelines
+## Commit Messages: Conventional Commits
 
-This guide defines conventions and best practices for writing GitHub Actions workflows to ensure clarity, maintainability, and consistency across repositories.
+Always use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) for every commit message.
 
-### File Structure and Naming
+**Format:** `<type>[optional scope]: <description>`
 
-- Workflows must reside in `.github/workflows/`.
-- File names should describe the pipeline purpose.
+| Type | Effect | When to use |
+|------|--------|-------------|
+| `fix` | PATCH release | Patches a bug |
+| `feat` | MINOR release | Introduces a new feature |
+| `BREAKING CHANGE` footer or `!` suffix | MAJOR release | Introduces a breaking API change |
+| `build`, `chore`, `ci`, `docs`, `style`, `refactor`, `perf`, `test` | No release | All other changes |
 
-### Workflow Readability and Modularity
+**Rules:**
+- A scope may be added in parentheses for extra context: `feat(parser): add ability to parse arrays`
+- Breaking changes must include `BREAKING CHANGE:` in the footer, or append `!` to the type: `feat!: drop support for Node 6`
+- Commit message titles must also match the project pattern: `^(fix|feat|build|chore|ci|docs|style|refactor|perf|test)/[a-z0-9._-]+$`
 
-- Minimize logic in YAML: Avoid inline Bash scripts inside the `.yml` file.
-- Prefer calling logic from:
-  - `taskfile.yml` (using a [taskfile](https://taskfile.dev))
-  - `docker-compose.yml` services
+## Project Overview
 
-This approach keeps workflows clean, enables the reuse and local execution of tasks, and makes it easier to test logic outside the CI/CD environment.
+This is the **`sommerfeld-io` organization's `.github` meta-repository**. It serves as:
+- Fallback community health files (PR templates, issue templates, code of conduct) for all org repos without their own `.github/` directory
+- Reusable GitHub Actions workflow library referenced by other repositories
+- Conventions and standards for all `sommerfeld-io` projects
 
-### Secrets Management
+Key docs: [Development Guide](../docs/development-guide.md) | [Contributing](../CONTRIBUTING.md)
 
-- Never hard-code credentials, tokens, or sensitive values.
-- All usernames, passwords, tokens, API keys, etc., must be stored in GitHub Secrets and referenced as environment variables.
-- Define multiple environemnts when helpful and define secrets inside these environemnts.
+## Development Commands
 
-### DockerHub Usage
+All tasks run via [Taskfile](https://taskfile.dev) (`taskfile.yml`). Linting is executed through Docker Compose services — no local tool installs needed.
 
-- Always authenticate when pulling from Docker Hub to avoid rate limits and to support private images.
-
-```yaml
-- name: Login to Container Registry
-  uses: docker/login-action@v3
-  with:
-    registry: ${{ env.REGISTRY }}
-    username: ${{ secrets.DOCKERHUB_USER }}
-    password: ${{ secrets.DOCKERHUB_TOKEN }}
+```bash
+task lint        # Run all linters (yaml, workflows, filenames, folders, markdown-links)
+task cleanup     # Stop containers, prune volumes, remove generated artifacts
 ```
 
-## Guideline: Pull Requests
+Individual linters:
+```bash
+docker compose up lint-yaml --exit-code-from lint-yaml
+docker compose up lint-workflows --exit-code-from lint-workflows
+docker compose up lint-filenames --exit-code-from lint-filenames
+docker compose up lint-folders --exit-code-from lint-folders
+docker compose up lint-markdown-links --exit-code-from lint-markdown-links
+```
 
-- Ensure the pull request (PR) has a clear, descriptive title.
-- Confirm the PR description explains the purpose and scope of the change.
-- Verify that all checks from all relevant Github Actions have passed.
-- Ensure code passes all linter checks as configured in the repository.
-- Assign at least one reviewer.
+## Naming & File Conventions
 
-### When to create a Pull Request
+**Commit messages and PR/branch titles** must match: `^(fix|feat|build|chore|ci|docs|style|refactor|perf|test)/[a-z0-9._-]+$`
 
-- Always create a Pull Request (PR) as soon as you begin implementing a change in a branch.
-- Provide a PR description that reflects the reason for the change as soon as possible.
-- Descriptions of technical changes can be added and updated as the implementation evolves.
+**File naming** (enforced by `ls-lint`):
+- `.yml`, `.yaml`, `.md`, `.sh`, `.json`, `.conf` → `kebab-case`
+- `Dockerfile` → `PascalCase`
+- Config dotfiles (`.gitignore`, `.env`) → `lowercase`
 
-### Reviews
+**Folder structure** is enforced by `folderslint` (see `.folderslintrc`). Allowed top-level directories include `.devcontainer/`, `.github/`, `.vscode/`, `assets/`, `docs/`, `profile/`.
 
-- **Always Request:** `sebastian-sommerfeld-io`
-- Only mark the PR as ready for review if all checklist items are satisfied.
+## Release Automation
 
-### Merge Rules
-
-- **No Merge Conflicts**: Merging is prevented if conflicts exist.
-- **Title and Commit Pattern**: Both PR titles and all commit messages must follow the pattern `^(fix|feat|build|chore|ci|docs|style|refactor|perf|test)/[a-z0-9._-]+$`.
+Releases are fully automated via `semantic-release` triggered by CI on `main`. Git tags are **never created manually**. Versioning follows [SemVer](https://semver.org) driven by commit types.
