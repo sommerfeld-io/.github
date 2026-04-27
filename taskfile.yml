@@ -40,3 +40,11 @@ tasks:
       - task: cleanup:filesystem
       - for: ['yaml', 'workflows', 'filenames', 'folders', 'markdown-links']
         cmd: docker compose up lint-{{ .ITEM }} --exit-code-from lint-{{ .ITEM }}
+
+  # ===============================================================================================
+
+  copilot:lint-and-fix:
+    desc: 'Use GitHub Copilot to lint and fix issues in the project'
+    cmds:
+      - task: cleanup
+      - copilot --allow-all --prompt "/lint-and-fix"
