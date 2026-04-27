@@ -10,12 +10,12 @@ Always use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/
 |------|--------|-------------|
 | `fix` | PATCH release | Patches a bug |
 | `feat` | MINOR release | Introduces a new feature |
-| `BREAKING CHANGE` footer or `!` suffix | MAJOR release | Introduces a breaking API change |
+| `BREAKING CHANGE` footer | MAJOR release | Introduces a breaking API change |
 | `build`, `chore`, `ci`, `docs`, `style`, `refactor`, `perf`, `test` | No release | All other changes |
 
 **Rules:**
 - A scope may be added in parentheses for extra context: `feat(parser): add ability to parse arrays`
-- Breaking changes must include `BREAKING CHANGE:` in the footer, or append `!` to the type: `feat!: drop support for Node 6`
+- Breaking changes must include `BREAKING CHANGE:` in the footer: `feat!: drop support for Node 6`
 - Commit message titles must also match the project pattern: `^(fix|feat|build|chore|ci|docs|style|refactor|perf|test)/[a-z0-9._-]+$`
 
 ## Project Overview
