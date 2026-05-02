@@ -3,6 +3,7 @@ version: '3.42.1'
 
 includes:
   common: assets/task/common.yml
+  copilot: .github/skills/taskfile.yml
 
 vars:
   INSPEC_COMPOSE_SERVICE: chef/inspec:5.22.76
