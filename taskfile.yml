@@ -2,7 +2,7 @@
 version: '3.42.1'
 
 includes:
-  common: assets/task/common.yml
+  common: .task/common/taskfile.yml
   copilot: .github/skills/taskfile.yml
 
 vars:
