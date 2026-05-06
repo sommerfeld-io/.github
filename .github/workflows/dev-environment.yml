@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v6
+        with:
+          submodules: true
       - name: hadolint
         uses: hadolint/hadolint-action@v3.3.0
         with:
