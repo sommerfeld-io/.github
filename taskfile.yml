@@ -16,6 +16,7 @@ tasks:
     desc: Update project dependencies and submodules
     cmds:
       - git submodule update --remote
+      - "jq '{mcpServers: .servers}' .vscode/mcp.json > .mcp.json"
 
   cleanup:filesystem:
     desc: Cleanup the filesystem for this project
@@ -47,17 +48,3 @@ tasks:
       - task: cleanup:filesystem
       - for: ['yaml', 'workflows', 'filenames', 'folders', 'markdown-links']
         cmd: docker compose up lint-{{ .ITEM }} --exit-code-from lint-{{ .ITEM }}
-
-  # ===============================================================================================
-
-  copilot:lint-and-fix:
-    desc: 'Use GitHub Copilot to lint and fix issues in the project'
-    cmds:
-      - task: cleanup
-      - copilot --allow-all --prompt "/lint-and-fix"
-
-  copilot:pull-request:
-    desc: 'Use GitHub Copilot to create or update a pull request with a summary of all changes based on commit messages'
-    cmds:
-      - task: update
-      - copilot --allow-all --prompt "/create-or-update-pull-request"
