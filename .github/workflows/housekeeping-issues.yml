@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          submodules: true
       - name: Add to project sommerfeld-io (issues and PRs)
         uses: actions/add-to-project@main
         with:
