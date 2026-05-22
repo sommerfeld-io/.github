@@ -7,6 +7,9 @@ on:
       - labeled
       - unlabeled
   workflow_call:
+    secrets:
+      GH_TOKEN_REPO_AND_PROJECT:
+        required: true
 
 jobs:
   move-to-backlog:
