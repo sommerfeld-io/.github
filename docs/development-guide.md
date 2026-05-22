@@ -203,3 +203,12 @@ Architecture decisions are labeled as `ADR` and are tracked as GitHub issues. Ea
 ### Risks and Technical Debts
 
 All issues labeled as `risk` (= some sort of risk or a technical debt) or `security` (= disclosed security issues - e.g. CVEs) [are tracked as GitHub issue](https://github.com/orgs/sommerfeld-io/projects/1/views/21) and carry the respective label. For more information on how to report a vulnerability, please refer to the [Security Policy](https://github.com/sommerfeld-io/.github/blob/main/SECURITY.md).
+
+### SDLC and AI Assistance
+
+- All issues start in column "Skeleton". Issues in this column are not yet fully defined and still need work.
+- After Refinement they move into "Backlog" for priorization and planning.
+- Once an issue is in "Ready for Development", work can start. The "Next" column indicates what issues are to be done next.
+- "In Progress" and "Done" explain themselves.
+
+A copilot skill `/triage-issues` helps with refining an issue from a skeleton to a fulyl defined issue. The issues automatically move from "Skeleton" to "Backlog", when the Label `needs-triage` is unassigned and `review-me` is assigned. Once `review-me` is unassigned again, the issue automatically moves to "Ready for Development".
