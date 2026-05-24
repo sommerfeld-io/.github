@@ -12,7 +12,7 @@ on:
         required: true
 
 jobs:
-  move-to-backlog:
+  move-issue-to-backlog:
     name: Move issue to 'Backlog'
     runs-on: ubuntu-latest
     if: github.event.action == 'labeled' && github.event.label.name == 'review-me'
@@ -112,7 +112,7 @@ jobs:
           echo "Issue successfully moved to 'Backlog'"
         shell: bash
 
-  move-to-ready:
+  move-issue-to-ready:
     name: Move issue to 'Ready for Development'
     runs-on: ubuntu-latest
     if: github.event.action == 'unlabeled' && github.event.label.name == 'review-me'
