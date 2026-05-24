@@ -4,6 +4,10 @@ name: "Pipeline: Release"
 on:
   release:
     types: [created]
+  workflow_call:
+    secrets:
+      GITHUB_TOKEN:
+        required: true
 
 env:
   DOCS_PAGES_ARTIFACT: docs-page
