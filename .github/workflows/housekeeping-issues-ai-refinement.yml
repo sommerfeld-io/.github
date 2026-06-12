@@ -28,15 +28,10 @@ jobs:
       - name: Install GitHub Copilot CLI
         run: npm install -g @github/copilot
         shell: bash
-      - name: Install Task
-        uses: arduino/setup-task@v2.0.0
-        with:
-          version: 3.x
       - name: Show versions
         run: |
           gh --version
           copilot --version
-          task --version
         shell: bash
       - name: Check for issues labelled needs-triage
         id: check
@@ -52,5 +47,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_CLI_TOKEN }}
-        run: task copilot:triage-issues
+        run: |
+          issue_numbers=$(gh issue list --label "needs-triage" --state open --json number --limit 200 | jq -r '.[].number')
+          for number in $issue_numbers; do
+            echo "Triaging issue #$number ..."
+            copilot --allow-all --prompt "/triage-issues #$number"
+          done
         shell: bash
