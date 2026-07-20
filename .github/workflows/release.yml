@@ -90,7 +90,7 @@ jobs:
           fetch-tags: true
           ref: ${{ github.ref }}
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22
       - name: Install GitHub Copilot CLI
