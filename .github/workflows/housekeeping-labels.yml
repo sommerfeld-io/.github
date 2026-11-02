@@ -66,4 +66,5 @@ jobs:
           gh label create "github_actions" --color "000000" --description "Dependabot: Pull requests that update GitHub Actions code" --force
           gh label create "go" --color "000000" --description "Dependabot: Pull requests that update Go code" --force
           gh label create "javascript" --color "000000" --description "Dependabot: Pull requests that update javascript code (e.g. node modules)" --force
+          gh label create "opentofu" --color "000000" --description "Dependabot: Pull requests that update opentofu code" --force
         shell: bash
