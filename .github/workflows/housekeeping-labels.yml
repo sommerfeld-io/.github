@@ -45,6 +45,8 @@ jobs:
           gh label delete "kotlin" --yes || true
           gh label delete "terraform" --yes || true
           gh label delete "refinement-done" --yes || true
+          gh label delete "needs-triage" --yes || true
+          gh label delete "review-me" --yes || true
 
           gh label create "blocked / waiting" --color "5319E7" --description "Issues that are blocked or waiting for something" --force
           gh label create "bug" --color "B60205" --description "Something is not working" --force
@@ -53,9 +55,6 @@ jobs:
           gh label create "task" --color "0052CC" --description "Implementation task - relates to a user story (most of the time)" --force
           gh label create "story" --color "#46c5e9" --description "User Story to describe a new feature" --force
           gh label create "ADR" --color "0052CC" --description "Architecture Decision Record" --force
-
-          gh label create "needs-triage" --color "FBCA04" --description "Issue needs to be triaged and assigned" --force
-          gh label create "review-me" --color "#296414" --description "Issue is specified with the help of AI and ready for a human review" --force
 
           gh label create "prio-high" --color "D93F0B" --description "High priority issues" --force
           gh label create "released" --color "000000" --description "semantic-release: Released by pipeline" --force
