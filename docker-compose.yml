@@ -29,7 +29,16 @@ services:
     user: root
     volumes: *volumes
     working_dir: *default-workdir
-    command: -color
+    command:
+      - -color
+      - .github/workflows/codeql.yml
+      - .github/workflows/dev-environment.yml
+      - .github/workflows/housekeeping-issues.yml
+      - .github/workflows/housekeeping-labels.yml
+      - .github/workflows/housekeeping-project.yml
+      - .github/workflows/lib-release-code.yml
+      - .github/workflows/pipeline.yml
+      - .github/workflows/release.yml
     tty: *tty
 
   lint-filenames:
