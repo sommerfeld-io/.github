@@ -6,7 +6,6 @@
 		".github",
         ".github/ISSUE_TEMPLATE",
 		".github/prompts",
-		".github/skills/*",
 		".github/workflows",
 		".github/workflows/assets",
 

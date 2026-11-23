@@ -5,7 +5,6 @@ includes:
   bmad: .task/bmad/taskfile.yml
   cleanup: .task/cleanup/taskfile.yml
   common: .task/common/taskfile.yml
-  copilot: .github/skills/taskfile.yml
 
 vars:
   INSPEC_COMPOSE_SERVICE: chef/inspec:5.22.76

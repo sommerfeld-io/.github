@@ -47,7 +47,6 @@ ignore:
   - target/docs/site
   - target
 
-  - .github/skills/.markdownlint.yml
 
   # linter definitions etc.
   - .editorconfig
