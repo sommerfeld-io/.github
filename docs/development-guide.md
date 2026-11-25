@@ -211,4 +211,4 @@ All issues labeled as `risk` (= some sort of risk or a technical debt) or `secur
 - Once an issue is in "Ready for Development", work can start. The "Next" column indicates what issues are to be done next.
 - "In Progress" and "Done" explain themselves.
 
-A copilot skill `/triage-issues` helps with refining an issue from a skeleton to a fulyl defined issue. The issues automatically move from "Skeleton" to "Backlog", when the Label `needs-triage` is unassigned and `review-me` is assigned. Once `review-me` is unassigned again, the issue automatically moves to "Ready for Development".
+Issues are moved between the board columns by hand during refinement.
