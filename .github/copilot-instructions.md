@@ -44,7 +44,7 @@ docker compose up lint-yaml --exit-code-from lint-yaml
 docker compose up lint-workflows --exit-code-from lint-workflows
 docker compose up lint-filenames --exit-code-from lint-filenames
 docker compose up lint-folders --exit-code-from lint-folders
-docker compose up lint-markdown-links --exit-code-from lint-markdown-links
+docker compose up markdown-links --exit-code-from markdown-links
 ```
 
 ## Naming & File Conventions
